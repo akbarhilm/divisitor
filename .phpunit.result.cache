@@ -1,0 +1,1 @@
+{"version":1,"defects":{"App\\Repository\\ResolusiRepositoryTest::testFindById":4},"times":{"ProgrammerZamanNow\\Belajar\\PHP\\MVC\\RegexTest::testRegex":0.382,"App\\Repository\\ResolusiRepositoryTest::testGetAllResolusi":1.608,"App\\Repository\\ResolusiRepositoryTest::testFindById":0.078,"App\\Repository\\ResolusiServiceTest::testGetAllResolusi":0.015}}
