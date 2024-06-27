@@ -12,13 +12,22 @@
         </x-modal.header>
         <x-modal.body>
             <div class="row">
-                <div class="col-lg-6">		
+                <div class="col-lg-6">	
+				{{--				
                     <x-input
                         label="Jenis Rapat"
                         placeholder="Enter Jenis Rapat"
 						value="0"
                         wire:model="form.jenisRapat"
                     />
+				--}}
+			<label class="btn custom-btn-color p-1 active" style="width:100px">
+                <input type="radio" wire:model.live="receiveStats" name='receiveStats'  value="0"> Offline 
+            </label><br>
+            <label class="btn custom-btn-color p-1" style="width:100px">
+                <input type="radio" wire:model.live="receiveStats" name='receiveStats' value="1"> Online
+            </label>
+			
                 </div>
                 <div class="col-lg-6">
                     <x-input
@@ -46,8 +55,8 @@
                         wire:model="form.jamStart"
                     />
                 </div>
-            </div>		
-            <div class="row">
+            </div>				
+            <div x-show="0==$wire.receiveStats" class="row">
                 <div class="col-lg-6">
                     <x-select
                         label="Pilih Gedung"
@@ -64,7 +73,7 @@
                     />
                 </div>
             </div>		
-            <div class="row">
+            <div x-show="1==$wire.receiveStats" class="row">
                 <div class="col-lg-6">
                     <x-input
                         label="Link Rapat Online"

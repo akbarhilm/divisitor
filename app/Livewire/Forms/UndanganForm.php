@@ -5,6 +5,7 @@ namespace App\Livewire\Forms;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 use App\Models\Undangan;
+use Illuminate\Support\Facades\Auth;
 
 class UndanganForm extends Form
 {
@@ -66,7 +67,7 @@ class UndanganForm extends Form
 
         Undangan::create($this->validate());
     }
-	/*
+	
     public function setUndangan(Undangan $undangan)
     {
         $this->undangan = $undangan;
@@ -76,6 +77,25 @@ class UndanganForm extends Form
         $this->jenisRapat = $undangan->jenisRapat;
         $this->pengundang = $undangan->pengundang;
         $this->tanggal = $undangan->tanggal;
+        $this->jamStart = $undangan->jamStart;
+        $this->jamFinish = $undangan->jamFinish;
+        $this->building_id = $undangan->building_id;
+        $this->ruangRapat = $undangan->ruangRapat;
+        $this->linkRapat = $undangan->linkRapat;
+        $this->password = $undangan->password;
+        $this->created_by = $undangan->created_by;
     }	
-	*/
+
+    public function update()
+    {
+        $this->updated_at = now();
+        $this->updated_by = '930075';	//Auth::user()->nik;
+
+        $undangan = Undangan::find($this->undangan->id);
+
+        //$this->file = $this->fileTransaction($resolution->file, $this->file);
+
+        $this->undangan->update($this->validate());
+    }
+	
 }

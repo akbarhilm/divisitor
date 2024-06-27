@@ -52,6 +52,14 @@
                             modal="modal-form"
                             wire:mouseenter="$dispatch('update-resolution', { id: {{ $item->id }} })"
                         >
+                            <x-icon.person />
+                        </x-button>
+                        <x-button
+                            icon
+                            color="warning"
+                            modal="modal-udg-form"
+                            wire:mouseenter="$dispatch('update-undangan', { id: {{ $item->id }} })"
+                        >
                             <x-icon.pencil />
                         </x-button>
                         <x-button

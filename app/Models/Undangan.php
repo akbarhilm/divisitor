@@ -28,7 +28,7 @@ class Undangan extends Model
     const UPDATED_AT = 'd_update';	
 
     protected $maps = [
-        //'id'                    => 'i_id',
+        'id'                    => 'i_id',
         'subject'               => 'e_meet_subject',
         'building_id'    		=> 'i_idbldg',
         'jenisRapat'  			=> 'c_meet_online',

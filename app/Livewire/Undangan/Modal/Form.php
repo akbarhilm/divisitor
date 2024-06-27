@@ -5,6 +5,8 @@ namespace App\Livewire\Undangan\Modal;
 use Livewire\Component;
 use App\Livewire\Forms\UndanganForm;
 use App\Models\Building;
+use Livewire\Attributes\On;
+use App\Models\Undangan;
 
 class Form extends Component
 {
@@ -28,9 +30,25 @@ class Form extends Component
         $this->form->resetValidation();
     }
 	
+    #[On('update-undangan')]
+    public function update($id)
+    {
+        $this->update = true;
+
+        $undangan = Undangan::find($id);
+
+        $this->form->setUndangan($undangan);
+        $this->form->resetValidation();
+    }
+	
+	
     public function save()
     {
-        $this->form->store();
+        if ($this->update) {
+            $this->form->update();
+        } else {
+            $this->form->store();
+        }
 
         flash()->addSuccess('Undangan successfully ' . ($this->update ? 'updated' : 'added'));
 
