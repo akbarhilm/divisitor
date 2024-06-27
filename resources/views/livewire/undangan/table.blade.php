@@ -49,8 +49,8 @@
                         <x-button
                             icon
                             color="warning"
-                            modal="modal-form"
-                            wire:mouseenter="$dispatch('update-resolution', { id: {{ $item->id }} })"
+                            modal="modal-pst-form"
+                            wire:mouseenter="$dispatch('update-peserta', { id: {{ $item->id }} })"
                         >
                             <x-icon.person />
                         </x-button>

@@ -6,24 +6,21 @@ use Livewire\Component;
 use App\Livewire\Forms\UndanganForm;
 use App\Models\Building;
 use Livewire\Attributes\On;
-<<<<<<< HEAD
 use App\Models\Undangan;
-=======
->>>>>>> 4070ad92919def8bcab643cdb2725a312314186e
 
 class Form extends Component
 {
     public $receiveStats = '0';
-    public $buildings;
+    public $buildings;	
 
     public UndanganForm $form;
     public $update = false;
 
     public function mount()
     {
-        $this->buildings = Building::all();
+        $this->buildings = Building::all();		
     }
-
+	
     #[On('create-undangan')]
     public function create()
     {
@@ -32,7 +29,6 @@ class Form extends Component
         $this->form->reset();
         $this->form->resetValidation();
     }
-<<<<<<< HEAD
 	
     #[On('update-undangan')]
     public function update($id)
@@ -46,9 +42,6 @@ class Form extends Component
     }
 	
 	
-=======
-
->>>>>>> 4070ad92919def8bcab643cdb2725a312314186e
     public function save()
     {
         if ($this->update) {

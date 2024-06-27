@@ -26,8 +26,7 @@
             </label><br>
             <label class="btn custom-btn-color p-1" style="width:100px">
                 <input type="radio" wire:model.live="receiveStats" name='receiveStats' value="1"> Online
-            </label>
-			
+            </label>				
                 </div>
                 <div class="col-lg-6">
                     <x-input
