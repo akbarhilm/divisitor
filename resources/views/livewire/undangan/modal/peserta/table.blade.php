@@ -24,36 +24,24 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Jenis</th>
-                <th>Tgl / Jam</th>
-                <th>Subject</th>
+                <th>Id Vms</th>
+                <th>Nama</th>
                 <th class="text-center">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($undangans as $item)
+            @foreach ($pesertas as $item)
                 <tr>
                     <td>
-                        {{ $item->i_id }}
+                        {{ $item->id }}
                     </td>
                     <td>
-                        {{$item->c_meet_online=='0'?'Offline':'Online'}}
+                        {{ $item->idvms }}
                     </td>
                     <td>
-                        {{ date("d-m-Y", strtotime($item->d_meet)) }}
+					{{$item->name}}
                     </td>
-                    <td>
-					{{$item->e_meet_subject}}
-                    </td>
-                    <td class="text-center">
-                        <x-button
-                            icon
-                            color="warning"
-                            modal="undangan-modal-peserta"
-                            wire:click="$dispatch('set-undangan-idvms', { id: {{ $item->id }} })"
-                        >
-                            <x-icon.person />
-                        </x-button>
+                    <td class="text-center">					
                         <x-button
                             icon
                             color="warning"
@@ -78,7 +66,6 @@
 		
     </x-table>
     <x-card.footer class="d-flex align-items-center">
-        <x-pagination :resources="$undangans" />
+        <x-pagination :resources="$pesertas" />
     </x-card.footer>
-	<livewire:undangan.modal.peserta />
 </x-card>

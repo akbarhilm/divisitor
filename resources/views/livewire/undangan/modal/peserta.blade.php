@@ -1,17 +1,23 @@
+<x-modal
+    id="undangan-modal-peserta"
+    size="lg"
+    x-data="{ modal: new bootstrap.Modal($el) }"
+		{{--x-on:peserta-updated="modal.hide()"--}}
+>
 <div>
     <x-page.header>
         <div class="row g-2 align-items-center">
             <div class="col">
                 <h2 class="page-title fw-normal">
-                    Undangan
+                    Peserta
                 </h2>
             </div>
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
                     <x-button
                         color="primary"
-                        modal="modal-udg-form"
-                        wire:mouseenter="$dispatch('create-undangan')"
+                        modal="undangan-modal-peserta-modal-formz"
+                        wire:mouseenter="$dispatch('create-peserta')"
                     >
                         <x-icon.plus />
                         Create
@@ -21,9 +27,9 @@
         </div>
     </x-page.header>
     <x-page.body>
-        <livewire:undangan.table />
+		<livewire:undangan.modal.peserta.table />
     </x-page.body>
-    <livewire:undangan.modal.form />
-    <livewire:undangan.modal.delete />
-	
+	<livewire:undangan.modal.peserta.modal.form />
+	<livewire:undangan.modal.peserta.modal.delete />
 </div>
+</x-modal>		

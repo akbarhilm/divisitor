@@ -65,22 +65,5 @@ class Undangan extends Model
         'updated_by',
         'updated_at'
     ];	
-/* 
-    protected $fillable = [
-        'i_id',
-        'e_meet_subject',
-        'i_idbldg',
-        'c_meet_online',
-        'c_org_cur',
-        'i_emp_reqst',
-        'd_meet',
-        'd_meet_timestart',
-		'd_meet_timefinish',
-        'n_meet_link',
-        'n_room',
-        'i_meet_password',
-        'e_meet',
-        'i_entry'
-    ];	
- */
+
 }

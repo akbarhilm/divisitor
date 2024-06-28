@@ -1,5 +1,5 @@
 <x-modal
-    id="modal-pst-form"
+    id="undangan-modal-peserta-modal-form"
     size="lg"
     x-data="{ modal: new bootstrap.Modal($el) }"
     x-on:peserta-updated="modal.hide()"
