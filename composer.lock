@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8097ea40e6ba0c495a2c450a98cecc33",
+    "content-hash": "2704396229cbb2e25bacdcacdc6ed13e",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -889,11 +889,11 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.48.13",
+            "version": "v10.48.14",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/laravel/framework/v10.48.13/laravel-framework-v10.48.13.zip",
-                "reference": "2c6816d697a4362c09c066118addda251b70b98a",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/laravel/framework/v10.48.14/laravel-framework-v10.48.14.zip",
+                "reference": "27cb4736bb7e60a5311ec73160068dfbcf98336b",
                 "shasum": ""
             },
             "require": {
@@ -1082,7 +1082,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2024-06-18T16:46:35+00:00"
+            "time": "2024-06-21T10:06:42+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -1752,11 +1752,11 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "3.6.0",
+            "version": "3.7.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/monolog/monolog/3.6.0/monolog-monolog-3.6.0.zip",
-                "reference": "4b18b21a5527a3d5ffdac2fd35d3ab25a9597654",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/monolog/monolog/3.7.0/monolog-monolog-3.7.0.zip",
+                "reference": "f4393b648b78a5408747de94fca38beb5f7e9ef8",
                 "shasum": ""
             },
             "require": {
@@ -1829,7 +1829,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2024-04-12T21:02:21+00:00"
+            "time": "2024-06-28T09:40:51+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -3302,11 +3302,11 @@
         },
         {
             "name": "symfony/console",
-            "version": "v6.4.8",
+            "version": "v6.4.9",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/console/v6.4.8/symfony-console-v6.4.8.zip",
-                "reference": "be5854cee0e8c7b110f00d695d11debdfa1a2a91",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/console/v6.4.9/symfony-console-v6.4.9.zip",
+                "reference": "6edb5363ec0c78ad4d48c5128ebf4d083d89d3a9",
                 "shasum": ""
             },
             "require": {
@@ -3369,7 +3369,7 @@
                 "console",
                 "terminal"
             ],
-            "time": "2024-05-31T14:49:08+00:00"
+            "time": "2024-06-28T09:49:33+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -3459,11 +3459,11 @@
         },
         {
             "name": "symfony/error-handler",
-            "version": "v6.4.8",
+            "version": "v6.4.9",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/error-handler/v6.4.8/symfony-error-handler-v6.4.8.zip",
-                "reference": "ef836152bf13472dc5fb5b08b0c0c4cfeddc0fcc",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/error-handler/v6.4.9/symfony-error-handler-v6.4.9.zip",
+                "reference": "c9b7cc075b3ab484239855622ca05cb0b99c13ec",
                 "shasum": ""
             },
             "require": {
@@ -3507,7 +3507,7 @@
             ],
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
-            "time": "2024-05-31T14:49:08+00:00"
+            "time": "2024-06-21T16:04:15+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -3716,11 +3716,11 @@
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v6.4.8",
+            "version": "v6.4.9",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/http-kernel/v6.4.8/symfony-http-kernel-v6.4.8.zip",
-                "reference": "6c519aa3f32adcfd1d1f18d923f6b227d9acf3c1",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/http-kernel/v6.4.9/symfony-http-kernel-v6.4.9.zip",
+                "reference": "cc4a9bec6e1bdd2405f40277a68a6ed1bb393005",
                 "shasum": ""
             },
             "require": {
@@ -3803,15 +3803,15 @@
             ],
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
-            "time": "2024-06-02T16:06:25+00:00"
+            "time": "2024-06-28T11:48:06+00:00"
         },
         {
             "name": "symfony/mailer",
-            "version": "v6.4.8",
+            "version": "v6.4.9",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/mailer/v6.4.8/symfony-mailer-v6.4.8.zip",
-                "reference": "76326421d44c07f7824b19487cfbf87870b37efc",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/mailer/v6.4.9/symfony-mailer-v6.4.9.zip",
+                "reference": "e2d56f180f5b8c5e7c0fbea872bb1f529b6d6d45",
                 "shasum": ""
             },
             "require": {
@@ -3860,15 +3860,15 @@
             ],
             "description": "Helps sending emails",
             "homepage": "https://symfony.com",
-            "time": "2024-05-31T14:49:08+00:00"
+            "time": "2024-06-28T07:59:05+00:00"
         },
         {
             "name": "symfony/mime",
-            "version": "v6.4.8",
+            "version": "v6.4.9",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/mime/v6.4.8/symfony-mime-v6.4.8.zip",
-                "reference": "618597ab8b78ac86d1c75a9d0b35540cda074f33",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/mime/v6.4.9/symfony-mime-v6.4.9.zip",
+                "reference": "7d048964877324debdcb4e0549becfa064a20d43",
                 "shasum": ""
             },
             "require": {
@@ -3882,7 +3882,7 @@
                 "phpdocumentor/reflection-docblock": "<3.2.2",
                 "phpdocumentor/type-resolver": "<1.4.0",
                 "symfony/mailer": "<5.4",
-                "symfony/serializer": "<6.3.2"
+                "symfony/serializer": "<6.4.3|>7.0,<7.0.3"
             },
             "require-dev": {
                 "egulias/email-validator": "^2.1.10|^3.1|^4",
@@ -3892,7 +3892,7 @@
                 "symfony/process": "^5.4|^6.4|^7.0",
                 "symfony/property-access": "^5.4|^6.0|^7.0",
                 "symfony/property-info": "^5.4|^6.0|^7.0",
-                "symfony/serializer": "^6.3.2|^7.0"
+                "symfony/serializer": "^6.4.3|^7.0.3"
             },
             "type": "library",
             "autoload": {
@@ -3922,7 +3922,7 @@
                 "mime",
                 "mime-type"
             ],
-            "time": "2024-06-01T07:50:16+00:00"
+            "time": "2024-06-28T09:49:33+00:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -3970,11 +3970,11 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-ctype/v1.29.0/symfony-polyfill-ctype-v1.29.0.zip",
-                "reference": "ef4d7e442ca910c4764bce785146269b30cb5fc4",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-ctype/v1.30.0/symfony-polyfill-ctype-v1.30.0.zip",
+                "reference": "0424dff1c58f028c451efff2045f5d92410bd540",
                 "shasum": ""
             },
             "require": {
@@ -4022,15 +4022,15 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "time": "2024-05-31T15:07:36+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-intl-grapheme/v1.29.0/symfony-polyfill-intl-grapheme-v1.29.0.zip",
-                "reference": "32a9da87d7b3245e09ac426c83d334ae9f06f80f",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-intl-grapheme/v1.30.0/symfony-polyfill-intl-grapheme-v1.30.0.zip",
+                "reference": "64647a7c30b2283f5d49b874d84a18fc22054b7a",
                 "shasum": ""
             },
             "require": {
@@ -4077,15 +4077,15 @@
                 "portable",
                 "shim"
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "time": "2024-05-31T15:07:36+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-intl-idn/v1.29.0/symfony-polyfill-intl-idn-v1.29.0.zip",
-                "reference": "a287ed7475f85bf6f61890146edbc932c0fff919",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-intl-idn/v1.30.0/symfony-polyfill-intl-idn-v1.30.0.zip",
+                "reference": "a6e83bdeb3c84391d1dfe16f42e40727ce524a5c",
                 "shasum": ""
             },
             "require": {
@@ -4138,15 +4138,15 @@
                 "portable",
                 "shim"
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "time": "2024-05-31T15:07:36+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-intl-normalizer/v1.29.0/symfony-polyfill-intl-normalizer-v1.29.0.zip",
-                "reference": "bc45c394692b948b4d383a08d7753968bed9a83d",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-intl-normalizer/v1.30.0/symfony-polyfill-intl-normalizer-v1.30.0.zip",
+                "reference": "a95281b0be0d9ab48050ebd988b967875cdb9fdb",
                 "shasum": ""
             },
             "require": {
@@ -4196,15 +4196,15 @@
                 "portable",
                 "shim"
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "time": "2024-05-31T15:07:36+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-mbstring/v1.29.0/symfony-polyfill-mbstring-v1.29.0.zip",
-                "reference": "9773676c8a1bb1f8d4340a62efe641cf76eda7ec",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-mbstring/v1.30.0/symfony-polyfill-mbstring-v1.30.0.zip",
+                "reference": "fd22ab50000ef01661e2a31d850ebaa297f8e03c",
                 "shasum": ""
             },
             "require": {
@@ -4253,15 +4253,15 @@
                 "portable",
                 "shim"
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "time": "2024-06-19T12:30:46+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-php72/v1.29.0/symfony-polyfill-php72-v1.29.0.zip",
-                "reference": "861391a8da9a04cbad2d232ddd9e4893220d6e25",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-php72/v1.30.0/symfony-polyfill-php72-v1.30.0.zip",
+                "reference": "10112722600777e02d2745716b70c5db4ca70442",
                 "shasum": ""
             },
             "require": {
@@ -4303,15 +4303,15 @@
                 "portable",
                 "shim"
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "time": "2024-06-19T12:30:46+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-php80/v1.29.0/symfony-polyfill-php80-v1.29.0.zip",
-                "reference": "87b68208d5c1188808dd7839ee1e6c8ec3b02f1b",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-php80/v1.30.0/symfony-polyfill-php80-v1.30.0.zip",
+                "reference": "77fa7995ac1b21ab60769b7323d600a991a90433",
                 "shasum": ""
             },
             "require": {
@@ -4360,20 +4360,19 @@
                 "portable",
                 "shim"
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "time": "2024-05-31T15:07:36+00:00"
         },
         {
             "name": "symfony/polyfill-php83",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-php83/v1.29.0/symfony-polyfill-php83-v1.29.0.zip",
-                "reference": "86fcae159633351e5fd145d1c47de6c528f8caff",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-php83/v1.30.0/symfony-polyfill-php83-v1.30.0.zip",
+                "reference": "dbdcdf1a4dcc2743591f1079d0c35ab1e2dcbbc9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1",
-                "symfony/polyfill-php80": "^1.14"
+                "php": ">=7.1"
             },
             "type": "library",
             "extra": {
@@ -4414,15 +4413,15 @@
                 "portable",
                 "shim"
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "time": "2024-06-19T12:35:24+00:00"
         },
         {
             "name": "symfony/polyfill-uuid",
-            "version": "v1.29.0",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-uuid/v1.29.0/symfony-polyfill-uuid-v1.29.0.zip",
-                "reference": "3abdd21b0ceaa3000ee950097bc3cf9efc137853",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/polyfill-uuid/v1.30.0/symfony-polyfill-uuid-v1.30.0.zip",
+                "reference": "2ba1f33797470debcda07fe9dce20a0003df18e9",
                 "shasum": ""
             },
             "require": {
@@ -4470,7 +4469,7 @@
                 "portable",
                 "uuid"
             ],
-            "time": "2024-01-29T20:11:03+00:00"
+            "time": "2024-05-31T15:07:36+00:00"
         },
         {
             "name": "symfony/process",
@@ -4632,11 +4631,11 @@
         },
         {
             "name": "symfony/string",
-            "version": "v7.1.1",
+            "version": "v7.1.2",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/string/v7.1.1/symfony-string-v7.1.1.zip",
-                "reference": "60bc311c74e0af215101235aa6f471bcbc032df2",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/string/v7.1.2/symfony-string-v7.1.2.zip",
+                "reference": "14221089ac66cf82e3cf3d1c1da65de305587ff8",
                 "shasum": ""
             },
             "require": {
@@ -4692,7 +4691,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2024-06-04T06:40:14+00:00"
+            "time": "2024-06-28T09:27:18+00:00"
         },
         {
             "name": "symfony/translation",
@@ -4874,11 +4873,11 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v6.4.8",
+            "version": "v6.4.9",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/var-dumper/v6.4.8/symfony-var-dumper-v6.4.8.zip",
-                "reference": "ad23ca4312395f0a8a8633c831ef4c4ee542ed25",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/symfony/var-dumper/v6.4.9/symfony-var-dumper-v6.4.9.zip",
+                "reference": "c31566e4ca944271cc8d8ac6887cbf31b8c6a172",
                 "shasum": ""
             },
             "require": {
@@ -4932,7 +4931,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2024-05-31T14:49:08+00:00"
+            "time": "2024-06-27T13:23:14+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -5177,109 +5176,6 @@
                 "validate"
             ],
             "time": "2022-06-03T18:03:27+00:00"
-        },
-        {
-            "name": "yajra/laravel-oci8",
-            "version": "v10.6.0",
-            "dist": {
-                "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/yajra/laravel-oci8/v10.6.0/yajra-laravel-oci8-v10.6.0.zip",
-                "reference": "76ee396ff325d5386db84180577ce97dc99bc23f",
-                "shasum": ""
-            },
-            "require": {
-                "ext-oci8": ">=3.0.1",
-                "ext-pdo": "*",
-                "illuminate/database": "^10.0",
-                "illuminate/pagination": "^10.0",
-                "illuminate/support": "^10.0",
-                "illuminate/validation": "^10.0",
-                "php": "^8.1",
-                "yajra/laravel-pdo-via-oci8": "^3.0"
-            },
-            "require-dev": {
-                "doctrine/dbal": "^3.5",
-                "mockery/mockery": "^1.4.4",
-                "orchestra/testbench": "^8.0",
-                "phpunit/phpunit": "^10.0.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "10.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Yajra\\Oci8\\Oci8ServiceProvider",
-                        "Yajra\\Oci8\\Oci8ValidationServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helper.php"
-                ],
-                "psr-4": {
-                    "Yajra\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Arjay Angeles",
-                    "email": "aqangeles@gmail.com"
-                }
-            ],
-            "description": "Oracle DB driver for Laravel 4|5|6|7 via OCI8",
-            "keywords": [
-                "laravel",
-                "oci8",
-                "oracle",
-                "pdo_oci"
-            ],
-            "time": "2024-06-02T05:57:12+00:00"
-        },
-        {
-            "name": "yajra/laravel-pdo-via-oci8",
-            "version": "v3.4.4",
-            "dist": {
-                "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/yajra/laravel-pdo-via-oci8/v3.4.4/yajra-laravel-pdo-via-oci8-v3.4.4.zip",
-                "reference": "65c72f8098fb236e84c636a8f1c295e643484b49",
-                "shasum": ""
-            },
-            "require": {
-                "ext-oci8": "*",
-                "ext-pdo": "*",
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.4|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Yajra\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Arjay Angeles",
-                    "email": "aqangeles@gmail.com"
-                }
-            ],
-            "description": "PDO userspace driver proxying calls to PHP OCI8 driver",
-            "time": "2024-05-25T07:38:54+00:00"
         }
     ],
     "packages-dev": [
@@ -5490,11 +5386,11 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.29.3",
+            "version": "v1.30.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/laravel/sail/v1.29.3/laravel-sail-v1.29.3.zip",
-                "reference": "e35b3ffe1b9ea598246d7e99197ee8799f6dc2e5",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/laravel/sail/v1.30.0/laravel-sail-v1.30.0.zip",
+                "reference": "e08b594052385ab9891dd86047e52da8a953c827",
                 "shasum": ""
             },
             "require": {
@@ -5539,7 +5435,7 @@
                 "docker",
                 "laravel"
             ],
-            "time": "2024-06-12T16:24:41+00:00"
+            "time": "2024-06-18T17:36:56+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -5821,11 +5717,11 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "10.1.14",
+            "version": "10.1.15",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/phpunit/php-code-coverage/10.1.14/phpunit-php-code-coverage-10.1.14.zip",
-                "reference": "e3f51450ebffe8e0efdf7346ae966a656f7d5e5b",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/phpunit/php-code-coverage/10.1.15/phpunit-php-code-coverage-10.1.15.zip",
+                "reference": "5da8b1728acd1e6ffdf2ff32ffbdfd04307f26ae",
                 "shasum": ""
             },
             "require": {
@@ -5878,7 +5774,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2024-03-12T15:33:41+00:00"
+            "time": "2024-06-29T08:25:15+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -6059,11 +5955,11 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.21",
+            "version": "10.5.24",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/phpunit/phpunit/10.5.21/phpunit-phpunit-10.5.21.zip",
-                "reference": "ac837816fa52078f7a5e17ed774f256a72a51af6",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/phpunit/phpunit/10.5.24/phpunit-phpunit-10.5.24.zip",
+                "reference": "5f124e3e3e561006047b532fd0431bf5bb6b9015",
                 "shasum": ""
             },
             "require": {
@@ -6131,7 +6027,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2024-06-15T09:13:15+00:00"
+            "time": "2024-06-20T13:09:54+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -6847,11 +6743,11 @@
         },
         {
             "name": "spatie/error-solutions",
-            "version": "1.0.0",
+            "version": "1.0.4",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/spatie/error-solutions/1.0.0/spatie-error-solutions-1.0.0.zip",
-                "reference": "202108314a6988ede156fba1b3ea80a784c1734a",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/spatie/error-solutions/1.0.4/spatie-error-solutions-1.0.4.zip",
+                "reference": "264a7eef892aceb2fd65e206127ad3af4f3a2d6b",
                 "shasum": ""
             },
             "require": {
@@ -6901,7 +6797,7 @@
                 "error-solutions",
                 "spatie"
             ],
-            "time": "2024-06-12T14:49:54+00:00"
+            "time": "2024-06-28T13:33:04+00:00"
         },
         {
             "name": "spatie/flare-client-php",

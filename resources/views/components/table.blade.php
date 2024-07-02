@@ -1,5 +1,5 @@
-<div class="table-responsive">
-    <table class="table card-table table-vcenter text-nowrap">
+<div class="card-table table-responsive">
+    <table class="table table-vcenter">
         {{ $slot }}
     </table>
 </div>

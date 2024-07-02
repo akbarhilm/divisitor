@@ -9,6 +9,7 @@ use App\Mail\Ask;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Undangan;
+use App\Livewire\Referensi;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,10 @@ use App\Livewire\Undangan;
 |
 */
 
-//Route::group(['middleware' => 'keycloak-web'], function () {
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+Route::group(['middleware' => 'keycloak-web'], function () {
+    Route::get('/', Dashboard::class)->name('dashboard');
+    Route::get('/undangan', Undangan::class)->name('undangan');
+    Route::get('/referensi', Referensi::class)->name('referensi');
     Route::get('/resolution', Resolution::class)->name('resolution');
     Route::get('/incident', Incident::class)->name('incident');
     Route::get('/incident/{id}/edit', IncidentEdit::class)->name('incident-edit');
@@ -31,7 +34,6 @@ use App\Livewire\Undangan;
 
         return redirect()->route('keycloak.logout');
     })->name('logout');
-    Route::get('/undangan', Undangan::class)->name('undangan');
-//});
+});
 
-Route::get('/', Home::class)->name('home');
+// Route::get('/', Home::class)->name('home');

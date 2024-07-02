@@ -15,37 +15,37 @@ class UndanganForm extends Form
     public $subject;
 
     #[Validate('required', message: "Please provide a subject")]
-	public $uraian;
+    public $uraian;
 
     #[Validate('required', message: "Please provide jenis rapat")]
-	public $jenisRapat='0';
+    public $jenisRapat = '0';
 
     #[Validate('required', message: "Please provide organisasi pengundang")]
-	public $orgPengundang='IT2400';
+    public $orgPengundang = 'IT2400';
 
     #[Validate('required', message: "Please provide nik pengundang")]
-	public $pengundang;
+    public $pengundang;
 
     #[Validate('required', message: "Please provide tanggal rapat")]
-	public $tanggal;
+    public $tanggal;
 
     #[Validate('required', message: "Please provide jam start")]
-	public $jamStart;
+    public $jamStart;
 
     #[Validate('required', message: "Please provide jam finish")]
-	public $jamFinish="17";
+    public $jamFinish = "17";
 
     #[Validate('required_if:jenisRapat,0', message: "Please choose building")]
     public $building_id;
 
     #[Validate('required_if:jenisRapat,0', message: "Please provide meeting room")]
-	public $ruangRapat;
+    public $ruangRapat;
 
     #[Validate('required_if:jenisRapat,1', message: "Please provide link rapat")]
-	public $linkRapat;
+    public $linkRapat;
 
     #[Validate('required_if:jenisRapat,1', message: "Please provide password link rapat")]
-	public $password;
+    public $password;
 
     #[Validate('nullable')]
     public $created_by;
@@ -59,7 +59,7 @@ class UndanganForm extends Form
     public function store()
     {
         //$this->created_by = Auth::user()->nik;
-        $this->created_by = "930075";	// fixme
+        $this->created_by = "930075";    // fixme
 
         //if (isset($this->file)) {
         //    $this->file = $this->file->store();
@@ -67,7 +67,7 @@ class UndanganForm extends Form
 
         Undangan::create($this->validate());
     }
-	
+
     public function setUndangan(Undangan $undangan)
     {
         $this->undangan = $undangan;
@@ -84,12 +84,12 @@ class UndanganForm extends Form
         $this->linkRapat = $undangan->linkRapat;
         $this->password = $undangan->password;
         $this->created_by = $undangan->created_by;
-    }	
+    }
 
     public function update()
     {
         $this->updated_at = now();
-        $this->updated_by = '930075';	//Auth::user()->nik;
+        $this->updated_by = '930075';    //Auth::user()->nik;
 
         $undangan = Undangan::find($this->undangan->id);
 
@@ -97,5 +97,4 @@ class UndanganForm extends Form
 
         $this->undangan->update($this->validate());
     }
-	
 }

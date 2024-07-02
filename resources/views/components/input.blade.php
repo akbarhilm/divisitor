@@ -5,7 +5,7 @@
     $group = isset($before) || isset($after);
 @endphp
 
-<div class="mb-3">
+<div>
     @isset($label)
         <label class="form-label">
             {{ $label }}
@@ -24,19 +24,13 @@
             @isset($before)
                 {{ $before }}
             @endisset
-            <input
-                class="form-control @error($model) is-invalid @enderror"
-                {{ $attributes }}
-            >
+            <input class="form-control @error($model) is-invalid @enderror" {{ $attributes }}>
             @isset($after)
                 {{ $after }}
             @endisset
         </div>
     @else
-        <input
-            class="form-control @error($model) is-invalid @enderror"
-            {{ $attributes }}
-        >
+        <input class="form-control @error($model) is-invalid @enderror" {{ $attributes }}>
     @endif
 
     @error($model)

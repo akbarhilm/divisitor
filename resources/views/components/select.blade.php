@@ -4,16 +4,12 @@
     $model = $attributes->whereStartsWith('wire:model')->first();
 @endphp
 
-<div class="mb-3">
+<div>
     @isset($label)
         <label class="form-label">{{ $label }}</label>
     @endisset
 
-    <select
-        class="form-select @error($model) is-invalid @enderror"
-        x-init="new TomSelect($el)"
-        {{ $attributes }}
-    >
+    <select class="form-select @error($model) is-invalid @enderror" x-init="new TomSelect($el)" {{ $attributes }}>
         @if (isset($label) || isset($placeholder))
             @isset($placeholder)
                 <option value="">{{ $placeholder }}</option>
