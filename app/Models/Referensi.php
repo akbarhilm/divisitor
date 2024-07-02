@@ -37,7 +37,6 @@ class Referensi extends Model
         'updated_at'        => 'd_update'
     ];
 
-
     protected $fillable = [
         'id',
         'namatypekunjungan',
