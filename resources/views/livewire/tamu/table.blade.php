@@ -23,49 +23,70 @@
     <x-table>
         <thead>
             <tr>
+                <th>Id Vms</th>
                 <th>Id</th>
-                <th>Jenis</th>
-                <th>Tgl / Jam</th>
-                <th>Subject</th>
+                <th>Nama</th>
+                <th>Jumlah</th>
+                <th>Email</th>
+                <th>Handphone</th>
+                <th>Nama Perusahaan</th>
+                <th>Alamat Perusahaan</th>
+                <th>Kota Perusahaan</th>
+                <th>Kategori</th>
+                <th>Tipe</th>
                 <th class="text-center">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($undangans as $item)
+            @foreach ($tamu as $item)
                 <tr>
                     <td>
-                        {{ $item->i_id }}
+                        {{ $item->idvms }}
                     </td>
                     <td>
-                        {{$item->c_meet_online=='0'?'Offline':'Online'}}
+                        {{ $item->id }}
                     </td>
                     <td>
-                        {{ date("d-m-Y", strtotime($item->d_meet)) }}
+					{{$item->nama}}
                     </td>
                     <td>
-					{{$item->e_meet_subject}}
+					{{$item->jumlah}}
                     </td>
-                    <td class="text-center">
-                        <a
-                            class="btn btn-icon btn-success"
-                            target="_blank"
-							href="{{ route('tamu', ['id' => $item->id]) }}"
-                        >
-                            <x-icon.person />
-                        </a>
+                    <td>
+					{{$item->email}}
+                    </td>
+                    <td>
+					{{$item->handphone}}
+                    </td>
+                    <td>
+					{{$item->namaPerusahaan}}
+                    </td>
+                    <td>
+					{{$item->alamatPerusahaan}}
+                    </td>
+                    <td>
+					{{$item->kotaPerusahaan}}
+                    </td>
+                    <td>
+					{{$item->kategori}}
+                    </td>
+                    <td>
+					{{$item->tipe}}
+                    </td>
+                    <td class="text-center">					
                         <x-button
                             icon
                             color="warning"
-                            modal="undangan-modal-form"
-                            wire:mouseenter="$dispatch('update-undangan', { id: {{ $item->id }} })"
+                            modal="tamu-modal-form"
+                            wire:mouseenter="$dispatch('update-tamu', { id: {{ $item->id }} })"
                         >
                             <x-icon.pencil />
                         </x-button>
                         <x-button
                             icon
                             color="danger"
-                            modal="undangan-modal-delete"
-                            wire:click="$dispatch('set-undangan-id', { id: {{ $item->id }} })"
+                            modal="tamu-modal-delete"
+                            wire:click="$dispatch('set-tamu-id', { idvms: {{ $item->idvms }},id: {{ $item->id }} })"
                         >
                             <x-icon.trash />
                         </x-button>
@@ -77,6 +98,6 @@
 		
     </x-table>
     <x-card.footer class="d-flex align-items-center">
-        <x-pagination :resources="$undangans" />
+        <x-pagination :resources="$tamu" />
     </x-card.footer>
 </x-card>

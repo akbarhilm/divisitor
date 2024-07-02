@@ -29,6 +29,8 @@ class Peserta extends Model
         'id'    		=> 'i_id',
         'idvms'   		=> 'i_idvms',
         'name'  		=> 'n_visitor_card',
+        'email'  		=> 'i_visitor_email',
+        'handphone'  	=> 'i_visitor_hp',
         'created_by'  	=> 'i_entry',
         'created_at'  	=> 'd_entry',
         'updated_by'  	=> 'i_update',
