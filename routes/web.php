@@ -9,7 +9,7 @@ use App\Mail\Ask;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Undangan;
-use App\Livewire\Referensi;
+use App\Livewire\Tamu;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +34,8 @@ Route::group(['middleware' => 'keycloak-web'], function () {
 
         return redirect()->route('keycloak.logout');
     })->name('logout');
-});
+    Route::get('/undangan', Undangan::class)->name('undangan');
+    Route::get('/tamu/{id}', Tamu::class)->name('tamu');
+//});
 
 // Route::get('/', Home::class)->name('home');

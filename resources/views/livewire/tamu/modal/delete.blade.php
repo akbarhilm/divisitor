@@ -1,15 +1,15 @@
 <x-modal
-    id="undangan-modal-delete"
+    id="tamu-modal-delete"
     size="sm"
     color="danger"
     x-data="{ modal: new bootstrap.Modal($el) }"
-    x-on:undangan-deleted="modal.hide()"
+    x-on:tamu-deleted="modal.hide()"
 >
     <x-modal.body class="text-center py-4">
         <x-icon.alert-triangle class="text-danger icon-lg" />
-        <h3>Delete Undangan</h3>
+        <h3>Delete Tamu</h3>
         <div class="text-muted">
-            Do you really want to delete this undangan?
+            Do you really want to delete this Tamu?
         </div>
     </x-modal.body>
     <x-modal.footer>

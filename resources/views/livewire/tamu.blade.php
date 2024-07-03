@@ -3,15 +3,15 @@
         <div class="row g-2 align-items-center">
             <div class="col">
                 <h2 class="page-title fw-normal">
-                    Undangan
+                    Tamu
                 </h2>
             </div>
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
                     <x-button
                         color="primary"
-                        modal="undangan-modal-form"
-                        wire:mouseenter="$dispatch('create-undangan')"
+                        modal="tamu-modal-form"
+						wire:mouseenter="$dispatch('create-tamu', { idvms: {{ $id }} })"
                     >
                         <x-icon.plus />
                         Create
@@ -21,9 +21,10 @@
         </div>
     </x-page.header>
     <x-page.body>
-        <livewire:undangan.table />
+        <livewire:tamu.table :id="$id" />
     </x-page.body>
-    <livewire:undangan.modal.form />
-    <livewire:undangan.modal.delete />
-
+    <livewire:tamu.modal.form />
+    <livewire:tamu.modal.delete />
+	
 </div>
+	
