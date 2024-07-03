@@ -44,3 +44,30 @@ dev-deploy:
     - ssh $SSH_DEV "cd ~/project/divisitor && ./shutdown && ./startup"
   only:
     - development1
+
+test-build:
+  stage: build
+  image: repo.indonesian-aerospace.com/docker:20.10.16
+  before_script:
+    - mkdir -p $HOME/.docker
+    - echo $DOCKER_AUTH_CONFIG > $HOME/.docker/config.json
+  script:
+    - docker build -t repo.indonesian-aerospace.com/test-apps/divisitor:latest .
+    - docker push repo.indonesian-aerospace.com/test-apps/divisitor:latest
+    - docker rmi repo.indonesian-aerospace.com/test-apps/divisitor:latest
+  only:
+    - test
+
+test-deploy:
+  stage: deploy
+  cache: []
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY_TEST" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - ssh $SSH_TEST "cd ~/project/divisitor && ./shutdown && ./startup"
+  only:
+    - test
