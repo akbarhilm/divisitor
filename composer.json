@@ -25,6 +25,7 @@
         "livewire/livewire": "^3.4",
         "mailersend/laravel-driver": "^2.5",
         "php-flasher/flasher-laravel": "^1.15",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "vizir/laravel-keycloak-web-guard": "^3.0"
     },
     "require-dev": {

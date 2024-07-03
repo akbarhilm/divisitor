@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2704396229cbb2e25bacdcacdc6ed13e",
+    "content-hash": "601aa8e94c7954f9474ca9a9a6d77911",
     "packages": [
+        {
+            "name": "bacon/bacon-qr-code",
+            "version": "2.0.8",
+            "dist": {
+                "type": "zip",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/bacon/bacon-qr-code/2.0.8/bacon-bacon-qr-code-2.0.8.zip",
+                "reference": "8674e51bb65af933a5ffaf1c308a660387c35c22",
+                "shasum": ""
+            },
+            "require": {
+                "dasprid/enum": "^1.0.3",
+                "ext-iconv": "*",
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "phly/keep-a-changelog": "^2.1",
+                "phpunit/phpunit": "^7 | ^8 | ^9",
+                "spatie/phpunit-snapshot-assertions": "^4.2.9",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "suggest": {
+                "ext-imagick": "to generate QR code images"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BaconQrCode\\": "src/"
+                }
+            },
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Scholzen 'DASPRiD'",
+                    "email": "mail@dasprids.de",
+                    "homepage": "https://dasprids.de/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "BaconQrCode is a QR code generator for PHP.",
+            "homepage": "https://github.com/Bacon/BaconQrCode",
+            "time": "2022-12-07T17:46:57+00:00"
+        },
         {
             "name": "beberlei/assert",
             "version": "v3.3.2",
@@ -197,6 +241,46 @@
                 "stream_filter_register"
             ],
             "time": "2023-12-20T15:40:13+00:00"
+        },
+        {
+            "name": "dasprid/enum",
+            "version": "1.0.5",
+            "dist": {
+                "type": "zip",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/dasprid/enum/1.0.5/dasprid-enum-1.0.5.zip",
+                "reference": "6faf451159fb8ba4126b925ed2d78acfce0dc016",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1 <9.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7 | ^8 | ^9",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DASPRiD\\Enum\\": "src/"
+                }
+            },
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Scholzen 'DASPRiD'",
+                    "email": "mail@dasprids.de",
+                    "homepage": "https://dasprids.de/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP 7.1 enum implementation",
+            "keywords": [
+                "enum",
+                "map"
+            ],
+            "time": "2023-08-25T16:18:39+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -2043,11 +2127,11 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.0.2",
+            "version": "v5.1.0",
             "dist": {
                 "type": "zip",
-                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/nikic/php-parser/v5.0.2/nikic-php-parser-v5.0.2.zip",
-                "reference": "139676794dc1e9231bf7bcd123cfc0c99182cb13",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/nikic/php-parser/v5.1.0/nikic-php-parser-v5.1.0.zip",
+                "reference": "683130c2ff8c2739f4822ff7ac5c873ec529abd1",
                 "shasum": ""
             },
             "require": {
@@ -2058,7 +2142,7 @@
             },
             "require-dev": {
                 "ircmaxell/php-yacc": "^0.0.7",
-                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "^9.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -2087,7 +2171,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2024-03-05T20:51:40+00:00"
+            "time": "2024-07-01T20:03:41+00:00"
         },
         {
             "name": "nunomaduro/termwind",
@@ -3299,6 +3383,64 @@
                 "uuid"
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "simplesoftwareio/simple-qrcode",
+            "version": "4.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "http://repository.indonesian-aerospace.com:8081/repository/composer_group/simplesoftwareio/simple-qrcode/4.2.0/simplesoftwareio-simple-qrcode-4.2.0.zip",
+                "reference": "916db7948ca6772d54bb617259c768c9cdc8d537",
+                "shasum": ""
+            },
+            "require": {
+                "bacon/bacon-qr-code": "^2.0",
+                "ext-gd": "*",
+                "php": ">=7.2|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1",
+                "phpunit/phpunit": "~9"
+            },
+            "suggest": {
+                "ext-imagick": "Allows the generation of PNG QrCodes.",
+                "illuminate/support": "Allows for use within Laravel."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider"
+                    ],
+                    "aliases": {
+                        "QrCode": "SimpleSoftwareIO\\QrCode\\Facades\\QrCode"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SimpleSoftwareIO\\QrCode\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simple Software LLC",
+                    "email": "support@simplesoftware.io"
+                }
+            ],
+            "description": "Simple QrCode is a QR code generator made for Laravel.",
+            "homepage": "https://www.simplesoftware.io/#/docs/simple-qrcode",
+            "keywords": [
+                "Simple",
+                "generator",
+                "laravel",
+                "qrcode",
+                "wrapper"
+            ],
+            "time": "2021-02-08T20:43:55+00:00"
         },
         {
             "name": "symfony/console",

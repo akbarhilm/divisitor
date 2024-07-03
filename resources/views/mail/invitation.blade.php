@@ -3,7 +3,20 @@
         {{ config('app.name') }} - Ask
     </x-mail.preview>
     <x-mail.content>
-        <table
+        {{-- <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->generate($ticket)) !!} "> --}}
+       <div class="d-flex align-items-center flex-column">
+        <div class="mb-auto p-2"> {!! QrCode::size(125)->generate($ticket) !!}</div>
+        <div class="p-2">
+            <h3>
+            <small class="text-muted">{{implode(' ',str_split($ticket))}}</small>
+            </h3>
+        </div>
+        
+               
+           
+            
+        </div>
+        {{-- <table
             role="presentation"
             border="0"
             cellpadding="0"
@@ -32,7 +45,7 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> --}}
         <x-mail.paragraph>
             Terimakasih telah menggunakan layanan <b>Ask</b> di Known Error Database, berikut Nomor Tiket dari
             pertanyaan Bapak/Ibu <b>{{ $ticket }}</b>
