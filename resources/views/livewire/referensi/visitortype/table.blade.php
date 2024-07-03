@@ -23,11 +23,12 @@
     </x-card.header>
     <x-card.body class="p-0">
         <x-table>
-            <thead>
+            <thead class="">
                 <tr>
                     <th>No</th>
                     <th>Type</th>
                     <th>Status</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -36,22 +37,38 @@
                         <td class="w-1">
                             {{ $item->i_id }}
                         </td>
-                        <td class="td-truncate">
+                        <td class="">
                             {{ $item->n_type }}
                         </td>
-                        <td class="">
+                        <td class="text-nowrap">
                             {{ $item->c_active == '0' ? 'Tidak Aktif' : 'Aktif' }}
+                        </td>
+                        <td class="w-1">
+                            <div class="d-flex align-content-center gap-2">
+                                <x-button icon color="danger" modal="modal-delete" wire:mouseenter="">
+                                    <x-icon.trash />
+                                </x-button>
+                                <x-button icon color="warning" wire:navigate href="">
+                                    <x-icon.pencil />
+                                </x-button>
+                            </div>
+                            {{-- <x-button icon color="warning" wire:navigate
+                                href="{{ route('incident-edit', ['id' => $item->id]) }}">
+                                <x-icon.pencil />
+                            </x-button>
+                            <x-button icon color="danger" modal="modal-delete"
+                                wire:mouseenter="setIncidentId({{ $item->id }})">
+                                <x-icon.trash />
+                            </x-button> --}}
                         </td>
                     </tr>
                 @endforeach
             </tbody>
-
-
         </x-table>
     </x-card.body>
 
-    <x-card.footer class="d-flex align-items-center">
+    <x-card.footer class="d-flex align-items-center border-top-0">
         <x-pagination :resources="$datavisitortype" />
     </x-card.footer>
-    <livewire:referensi.visitortype.modal />
+    <livewire:referensi.visitortype.tambah />
 </x-card>

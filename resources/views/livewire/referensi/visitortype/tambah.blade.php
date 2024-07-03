@@ -1,5 +1,4 @@
-<x-modal id="modal-tambahvisitortype" size="lg" x-data="{ modal: new bootstrap.Modal($el) }"
-    x-on:referensi-updated="modal.hide()">
+<x-modal id="modal-tambahvisitortype" size="lg" x-data="{ modal: new bootstrap.Modal($el) }" x-on:referensi-updated="modal.hide()">
     <form wire:submit="save">
         <x-modal.header>
             <h5 class="modal-title fw-normal">
@@ -10,7 +9,7 @@
 
             <div class="row d-flex align-items-center mb-4">
                 <div class="col-3">
-                    <p class="m-0">Type</p>
+                    {{ $update ? 'Update' : 'Create' }}
                 </div>
                 <div class="col-9">
                     <x-input placeholder="Enter Type" value="930075" wire:model.live="form.namatypekunjungan" />
@@ -26,13 +25,17 @@
                     <div class="btn-group w-100" role="group">
                         <input type="radio" class="btn-check" wire:model.live="form.receiveStats" value="0"
                             id="btn-radio-basic-1" autocomplete="off" checked="1">
-                        <label for="btn-radio-basic-1" type="button" class="btn">Offline</label>
+                        <label for="btn-radio-basic-1" type="button" class="btn">Tidak Aktif</label>
 
                         <input type="radio" class="btn-check" wire:model.live="form.receiveStats" value="1"
                             id="btn-radio-basic-4" autocomplete="off">
-                        <label for="btn-radio-basic-4" type="button" class="btn">Online</label>
+                        <label for="btn-radio-basic-4" type="button" class="btn">Aktif</label>
                     </div>
-                    <div class="is-invalid">@error('form.receiveStats') {{ $message }} @enderror</div>
+                    <div class="is-invalid">
+                        @error('form.receiveStats')
+                            {{ $message }}
+                        @enderror
+                    </div>
                 </div>
             </div>
         </x-modal.body>

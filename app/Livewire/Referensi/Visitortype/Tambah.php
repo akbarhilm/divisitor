@@ -7,7 +7,7 @@ use App\Livewire\Forms\ReferensiForm;
 use Livewire\Attributes\On;
 use App\Models\Referensi;
 
-class Modal extends Component
+class Tambah extends Component
 {
     public ReferensiForm $form;
 
