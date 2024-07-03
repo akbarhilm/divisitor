@@ -1,4 +1,4 @@
-image: repo.indonesian-aerospace.com/custom-base/php8.3-monolith-ssl
+image: repo.indonesian-aerospace.com/custom-base/php8.3-monolith
 
 stages:
   - init
