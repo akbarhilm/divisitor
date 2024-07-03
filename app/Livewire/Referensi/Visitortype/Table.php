@@ -15,11 +15,29 @@ class Table extends Component
     public $rowsPerPageOptions = [5, 10, 20];
     public $search = '';
 
+    public $setVisitortypeId = null;
+
     public function updated($property)
     {
         if ($property == 'rowsPerPage' || $property == 'search') {
             $this->resetPage();
         }
+    }
+
+    public function setVisitortypeId($value)
+    {
+        $this->setVisitortypeId = $value;
+    }
+
+    public function delete()
+    {
+        $visitortype = Referensi::find($this->setVisitortypeId);
+        $visitortype->delete();
+
+        flash()->addSuccess('Incident or problem successfully deleted');
+
+        $this->resetPage();
+        $this->redirectRoute('incident');
     }
 
     #[On('undangan-deleted')]

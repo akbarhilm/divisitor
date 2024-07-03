@@ -44,12 +44,13 @@
                             {{ $item->c_active == '0' ? 'Tidak Aktif' : 'Aktif' }}
                         </td>
                         <td class="w-1">
-                            <div class="dropdown">
-                                <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown">Action</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Delete</a>
-                                    <a class="dropdown-item">Edit</a>
-                                </div>
+                            <div class="d-flex align-content-center gap-2">
+                                <x-button icon color="danger" modal="modal-delete" wire:mouseenter="">
+                                    <x-icon.trash />
+                                </x-button>
+                                <x-button icon color="warning" wire:navigate href="">
+                                    <x-icon.pencil />
+                                </x-button>
                             </div>
                             {{-- <x-button icon color="warning" wire:navigate
                                 href="{{ route('incident-edit', ['id' => $item->id]) }}">
