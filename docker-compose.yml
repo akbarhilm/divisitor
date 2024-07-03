@@ -1,42 +1,35 @@
 services:
-  kedb:
-    container_name: kedb
-    image: repo.indonesian-aerospace.com/custom-base/kedb
-    volumes:
-      - ./:/var/www/kedb
-    ports:
-      - "8000:80"
-    extra_hosts:
-      - "sso-dev:10.1.94.149"
-      - "helpdesk-api-dev:10.1.95.38"
-      - "host.docker.internal:host-gateway"
-    environment:
-      # laravel specific environment
-      - APP_NAME=Known Error Database
-      - APP_ENV=local
-      - APP_KEY=base64:qZ8+WlvuzGP89c8auzWToqCLXJcGw5hdo+Z0R6OGTrY=
-      - APP_DEBUG=true
-      - APP_URL=http://localhost
-      # keycloak configuration
-      - KEYCLOAK_BASE_URL=https://sso-dev.indonesian-aerospace.com
-      - KEYCLOAK_REALM=dev
-      - KEYCLOAK_CLIENT_ID=kedb
-      - KEYCLOAK_REDIRECT_URL=http://localhost:8000
-      # database connection
-      - DB_CONNECTION=oracle
-      - DB_HOST=10.1.94.72
-      - DB_PORT=1521
-      - DB_DATABASE=ora12dev
-      - DB_USERNAME=APLIT
-      - DB_PASSWORD=aplitdev
-      - DB_SCHEMA_PREFIX=DBADMIT
-      # email
-      - MAIL_MAILER=smtp
-      - MAIL_HOST=mail.indonesian-aerospace.com
-      - MAIL_PORT=25
-      - MAIL_FROM_ADDRESS="helpdesk@indonesian-aerospace.com"
-      - MAIL_FROM_NAME="${APP_NAME}"
-      # another
-      - APP_PROTOCOL=http
-      - INFO_API=http://helpdesk-api-dev
-      - PHOTO_API=http://portal.indonesian-aerospace.com/data/foto
+    kedb:
+        container_name: divisitor
+        image: repo.indonesian-aerospace.com/dev-apps/divisitor
+        volumes:
+            - ./:/var/www/divisitor
+        ports:
+            - "8000:80"
+        extra_hosts:
+            - "sso-dev:10.1.94.149"
+            - "helpdesk-api-dev:10.1.95.38"
+            - "host.docker.internal:host-gateway"
+        environment:
+            # laravel specific environment
+            - APP_NAME=di-visitors
+            - APP_ENV=local
+            - APP_KEY=base64:qZ8+WlvuzGP89c8auzWToqCLXJcGw5hdo+Z0R6OGTrY=
+            - APP_DEBUG=true
+            - APP_URL=http://localhost
+            # keycloak configuration
+            - KEYCLOAK_BASE_URL=https://sso-dev.indonesian-aerospace.com
+            - KEYCLOAK_REALM=dev
+            - KEYCLOAK_CLIENT_ID=kedb
+            - KEYCLOAK_REDIRECT_URL=http://localhost:8000
+            # database connection
+            - DB_CONNECTION=pgsql
+            - DB_HOST=10.1.94.149
+            - DB_PORT=5552
+            - DB_DATABASE=dbvms
+            - DB_USERNAME=uvms
+            - DB_PASSWORD=uvms2024
+            # another
+            - APP_PROTOCOL=http
+            - INFO_API=http://helpdesk-api-dev
+            - PHOTO_API=http://portal.indonesian-aerospace.com/data/foto
