@@ -24,7 +24,7 @@ use App\Livewire\Referensi;
 |
 */
 
-// Route::group(['middleware' => 'keycloak-web'], function () {
+Route::group(['middleware' => 'keycloak-web'], function () {
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/undangan', Undangan::class)->name('undangan');
     Route::get('/send', Send::class)->name('send');
@@ -39,6 +39,6 @@ use App\Livewire\Referensi;
     })->name('logout');
     Route::get('/undangan', Undangan::class)->name('undangan');
     Route::get('/tamu/{id}', Tamu::class)->name('tamu');
-//});
+});
 
 // Route::get('/', Home::class)->name('home');
