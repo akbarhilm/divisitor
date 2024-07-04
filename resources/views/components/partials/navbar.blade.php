@@ -1,13 +1,13 @@
 <header class="navbar-expand-md sticky-top">
     <div class="collapse navbar-collapse" id="navbar-menu">
         <div class="navbar">
-            <div class="container-xl">
-                <ul class="navbar-nav gap-3">
+            <div class="container-xl ">
+                <ul class="navbar-nav gap-3 mx-xs-3">
                     <li @class([
                         'nav-item',
                         'active' => Route::currentRouteName() == 'referensi',
                     ])>
-                        <a wire:navigate class="nav-link p-0" href="{{ route('referensi') }}">
+                        <a class="nav-link p-0" href="{{ route('referensi') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                 <x-icon.dashboard />
                             </span>
@@ -20,7 +20,7 @@
                         'nav-item',
                         'active' => Route::currentRouteName() == 'undangan',
                     ])>
-                        <a wire:navigate class="nav-link p-0" href="{{ route('undangan') }}">
+                        <a class="nav-link p-0" href="{{ route('undangan') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                 <x-icon.dashboard />
                             </span>

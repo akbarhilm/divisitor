@@ -1,46 +1,35 @@
 <?php
 
-namespace App\Livewire\Undangan\Modal;
+namespace App\Livewire\Referensi\Visitortype\Modal;
 
 use Livewire\Component;
-use App\Livewire\Forms\UndanganForm;
-use App\Models\Building;
+use App\Livewire\Forms\VisitortypeForm;
+use App\Models\VisitorType;
 use Livewire\Attributes\On;
-use App\Models\Undangan;
 
-class Form extends Component
+class Tambah extends Component
 {
-    public $receiveStats = '0';
-    public $buildings;
+    public VisitortypeForm $form;
 
-    public UndanganForm $form;
     public $update = false;
 
-    public function mount()
-    {
-        $this->buildings = Building::all();
-    }
-
-    #[On('create-undangan')]
+    #[On('visitortype-create')]
     public function create()
     {
-        $this->update = false;
-
         $this->form->reset();
         $this->form->resetValidation();
     }
 
-    #[On('update-undangan')]
+    #[On('visitortype-update')]
     public function update($id)
     {
         $this->update = true;
 
-        $undangan = Undangan::find($id);
+        $visitortype = VisitorType::find($id);
 
-        $this->form->setUndangan($undangan);
+        $this->form->setVisitortype($visitortype);
         $this->form->resetValidation();
     }
-
 
     public function save()
     {
@@ -51,7 +40,6 @@ class Form extends Component
         }
 
         flash()->addSuccess('Undangan successfully ' . ($this->update ? 'updated' : 'added'));
-
-        $this->dispatch('undangan-updated');
+        $this->dispatch('visitortype-updated');
     }
 }

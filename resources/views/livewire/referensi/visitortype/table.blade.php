@@ -12,7 +12,7 @@
                     @endforeach
                 </x-select>
                 <x-search placeholder="Search" wire:model.live="search" />
-                <x-button color="primary" modal="modal-tambahvisitortype" wire:mouseenter="$dispatch('create-referensi')">
+                <x-button color="primary" modal="modal-tambahvisitortype" wire:click="$dispatch('visitortype-create')">
                     <x-icon.plus />
                     Create
                 </x-button>
@@ -47,8 +47,16 @@
                             <div class="dropdown">
                                 <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown">Action</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Delete</a>
-                                    <a class="dropdown-item">Edit</a>
+                                    <x-button class="border-0 shadow-none dropdown-item justify-content-start"
+                                        modal="modal-tambahvisitortype"
+                                        wire:click="$dispatch('visitortype-update', { id: {{ $item->i_id }} })">
+                                        Edit
+                                    </x-button>
+                                    <x-button modal="modal-delete"
+                                        class="border-0 shadow-none dropdown-item justify-content-start"
+                                        wire:click="$dispatch('visitortype-delete', { id: {{ $item->i_id }} })">
+                                        Delete
+                                    </x-button>
                                 </div>
                             </div>
                             {{-- <x-button icon color="warning" wire:navigate
@@ -69,5 +77,6 @@
     <x-card.footer class="d-flex align-items-center border-top-0">
         <x-pagination :resources="$datavisitortype" />
     </x-card.footer>
-    <livewire:referensi.visitortype.tambah />
+    <livewire:referensi.visitortype.modal.tambah />
+    <livewire:referensi.visitortype.modal.delete />
 </x-card>
