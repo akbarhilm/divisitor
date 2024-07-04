@@ -41,5 +41,6 @@ class Tambah extends Component
 
         flash()->addSuccess('Undangan successfully ' . ($this->update ? 'updated' : 'added'));
         $this->dispatch('visitortype-updated');
+        $this->redirect('referensi');
     }
 }
