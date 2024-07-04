@@ -50,8 +50,7 @@ class ResolutionForm extends Form
 
     public function store()
     {
-        //$this->created_by = Auth::user()->nik;
-        $this->created_by = "930075";	// fixme
+        $this->created_by = Auth::user()->nik;
 
         if (isset($this->file)) {
             $this->file = $this->file->store();
