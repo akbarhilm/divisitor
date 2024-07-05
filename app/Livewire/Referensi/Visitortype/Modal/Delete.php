@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Referensi\Visitortype\Modal;
+namespace App\Livewire\Referensi\visitortype\Modal;
 
 use App\Models\Visitortype;
 use Livewire\Attributes\On;
@@ -8,22 +8,23 @@ use Livewire\Component;
 
 class Delete extends Component
 {
-    public $visitortypeId = null;
+    public $visitortypeId;
 
     #[On('visitortype-delete')]
-    public function setVisitortypeId($id)
+    public function setResolutionId($id)
     {
         $this->visitortypeId = $id;
     }
 
     public function delete()
     {
-        $visitortype = VisitorType::find($this->visitortypeId);
+        $visitortype = Visitortype::find($this->visitortypeId);
+
         $visitortype->delete();
 
-        flash()->addSuccess('Visitor Type or problem successfully deleted');
+        flash()->addSuccess('Visitor Type successfully deleted');
 
-        $this->dispatch('visitortype-delete');
+        $this->dispatch('visitortpye-delete');
         $this->redirect('referensi');
     }
 }
