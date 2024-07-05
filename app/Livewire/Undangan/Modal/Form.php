@@ -13,7 +13,6 @@ class Form extends Component
 {
     public $receiveStats = '0';
     public $buildings;	
-
     public UndanganForm $form;
     public $update = false;
 
