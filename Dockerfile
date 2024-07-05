@@ -1,3 +1,3 @@
-FROM repo.indonesian-aerospace.com/custom-base/php8.3-monolith
+FROM repo.indonesian-aerospace.com/custom-base/divisitor-server
 
 COPY . .
