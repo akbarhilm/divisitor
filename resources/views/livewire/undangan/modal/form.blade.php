@@ -13,45 +13,50 @@
         <x-modal.body>
             <div class="row">
                 <div class="col-lg-6">	
-				{{--				
-                    <x-input
-                        label="Jenis Rapat"
-                        placeholder="Enter Jenis Rapat"
-						value="0"
-                        wire:model="form.jenisRapat"
-                    />
-				--}}
-			<label class="btn custom-btn-color p-1 active" style="width:100px">
-                <input type="radio" wire:model.live="receiveStats" name='receiveStats'  value="0"> Offline 
-            </label><br>
-            <label class="btn custom-btn-color p-1" style="width:100px">
-                <input type="radio" wire:model.live="receiveStats" name='receiveStats' value="1"> Online
-            </label>				
+					<legend style="color:black;font-size:15px;font-weight:thin;">Jenis Rapat</legend>
+					<span>
+						<label class="btn custom-btn-color p-1 " style="width:100px">
+							<input type="radio" wire:model.live="receiveStats" wire:click="$dispatch('set-radio', { param: {{ '0' }} })" name='receiveStats'  value="0">&nbsp;&nbsp;Offline 
+						</label>
+						<label class="btn custom-btn-color p-1" style="width:100px">
+							<input type="radio" wire:model.live="receiveStats" wire:click="$dispatch('set-radio', { param: {{ '1' }} })" name='receiveStats' value="1">&nbsp;&nbsp;Online
+						</label>
+					</span>					
                 </div>
+                <div class="col-lg-6">
+
+                </div>
+            </div><br>	
+            <div class="row">
                 <div class="col-lg-6">
                     <x-input
                         label="Pengundang Rapat"
                         placeholder="Enter Pengundang"
-						value="930075"
-                        wire:model="form.pengundang"
+						readonly
+                        wire:model="form.pengundangTampil"
                     />
                 </div>
-            </div>		
-            <div class="row">
                 <div class="col-lg-6">
                     <x-date
                         label="Tanggal"
                         placeholder="Enter Tanggal"
-						value="2024-06-29"
                         wire:model="form.tanggal"
+                    />
+                </div>
+            </div>					
+            <div class="row">
+                <div class="col-lg-6">
+                    <x-input
+                        label="Jam Start"
+                        placeholder="Enter Jam Start"
+                        wire:model="form.jamStart"
                     />
                 </div>
                 <div class="col-lg-6">
                     <x-input
-                        label="Jam"
-                        placeholder="Enter Jam"
-						value="10"
-                        wire:model="form.jamStart"
+                        label="Jam Finish"
+                        placeholder="Enter Jam Finish"
+                        wire:model="form.jamFinish"
                     />
                 </div>
             </div>				
@@ -67,7 +72,6 @@
                     <x-input
                         label="Ruang Rapat"
                         placeholder="Enter Ruang Rapat"
-						value="Ruang Bisnis"
                         wire:model="form.ruangRapat"
                     />
                 </div>
@@ -93,7 +97,6 @@
                     <x-textarea
                         label="Subject"
                         placeholder="Enter Subject"
-						value="Subject rapat ku"
                         wire:model="form.subject"
                     />
                 </div>
@@ -101,7 +104,6 @@
                     <x-textarea
                         label="Uraian"
                         placeholder="Enter Uraian"
-						value="Uraian rapat ku"
                         wire:model="form.uraian"
                     />
                 </div>

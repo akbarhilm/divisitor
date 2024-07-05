@@ -7,6 +7,7 @@ use App\Livewire\Forms\UndanganForm;
 use App\Models\Building;
 use Livewire\Attributes\On;
 use App\Models\Undangan;
+use Illuminate\Support\Facades\Auth;
 
 class Form extends Component
 {
@@ -18,7 +19,22 @@ class Form extends Component
 
     public function mount()
     {
-        $this->buildings = Building::all();		
+        $this->buildings = Building::all();	
+		$this->form->pengundangTampil = Auth::user()->nama." (".Auth::user()->nik.")";
+    }
+
+    #[On('set-radio')]
+    public function radio($param)
+    {
+		$this->form->jenisRapat = $param;
+		$this->form->building_id = "";
+		$this->form->ruangRapat = "";
+		$this->form->linkRapat = "";
+		$this->form->password = "";
+		if($param=='1'){
+			$this->form->building_id = "-1";
+			$this->form->ruangRapat = "";
+		}
     }
 	
     #[On('create-undangan')]
@@ -28,6 +44,7 @@ class Form extends Component
 
         $this->form->reset();
         $this->form->resetValidation();
+		$this->form->pengundangTampil = Auth::user()->nama." (".Auth::user()->nik.")";
     }
 	
     #[On('update-undangan')]
@@ -36,7 +53,7 @@ class Form extends Component
         $this->update = true;
 
         $undangan = Undangan::find($id);
-
+		$this->receiveStats = $undangan->jenisRapat;
         $this->form->setUndangan($undangan);
         $this->form->resetValidation();
     }

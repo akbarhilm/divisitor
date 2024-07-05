@@ -15,24 +15,33 @@ class TamuForm extends Form
     public $idvms;
 
     #[Validate('required', message: "Please provide nama")]
+    #[Validate('max:30', message: "Nama maksimum 30 digits.")]
 	public $nama;
 
-    #[Validate('required|numeric|min:1', message: "Please provide jumlah > 0")]
+    #[Validate('required', message: "Please provide jumlah > 0")]
+    #[Validate('numeric', message: "Jumlah harus angka.")]
+    #[Validate('min:1', message: "Jumlah harus minimum 1.")]
 	public $jumlah;
 
     #[Validate('required', message: "Please provide email")]
+    #[Validate('max:30', message: "Email maksimum 30 digits.")]
 	public $email;
 
     #[Validate('required', message: "Please provide nomor handphone")]
+    #[Validate('regex:/^([0-9\s\-\+\(\)]*)$/', message: "Handphone harus angka .")]
+    #[Validate('max:30', message: "Handphone maksimum 30 digits.")]
 	public $handphone;
 
     #[Validate('required', message: "Please provide nama perusahaan")]
+    #[Validate('max:40', message: "Nama perusahaan maksimum 40 digits.")]
 	public $namaPerusahaan;
 
     #[Validate('required', message: "Please provide alamat perusahaan")]
+    #[Validate('max:50', message: "Alamat perusahaan maksimum 50 digits.")]
 	public $alamatPerusahaan;
 
     #[Validate('required', message: "Please provide kota perusahaan")]
+    #[Validate('max:30', message: "Kota perusahaan maksimum 30 digits.")]
 	public $kotaPerusahaan;
 
     #[Validate('required', message: "Please choose kategori")]
@@ -52,12 +61,7 @@ class TamuForm extends Form
 
     public function store()
     {
-        //$this->created_by = Auth::user()->nik;
-        $this->created_by = "930075";	// fixme
-
-        //if (isset($this->file)) {
-        //    $this->file = $this->file->store();
-        //}
+        $this->created_by = Auth::user()->nik;
 
         Tamu::create($this->validate());
     }
@@ -82,7 +86,7 @@ class TamuForm extends Form
     public function update()
     {
         $this->updated_at = now();
-        $this->updated_by = '930075';	//Auth::user()->nik;        	
+        $this->updated_by = Auth::user()->nik;        	
 
         //$tamu = Tamu::find($this->tamu->id);
 		$tamu = Tamu::where('i_idvms', $this->tamu->idvms)->where('i_id', $this->tamu->id)->get();

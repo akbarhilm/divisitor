@@ -10,7 +10,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "http://php-compo:repo-php123@repository.indonesian-aerospace.com:8081/repository/composer_group/"
+            "url": "https://php-compo:repo-php123@repo.indonesian-aerospace.com/repository/composer_group/"
         },
         {
             "packagist.org": false
@@ -77,8 +77,7 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
-        },
-        "secure-http": false
+        }
     },
     "minimum-stability": "stable",
     "prefer-stable": true

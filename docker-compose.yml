@@ -14,13 +14,13 @@ services:
             # laravel specific environment
             - APP_NAME=di-visitors
             - APP_ENV=local
-            - APP_KEY=base64:qZ8+WlvuzGP89c8auzWToqCLXJcGw5hdo+Z0R6OGTrY=
+            - APP_KEY=base64:rsUMrarsrxtEs24n16j36UhkdTpBapkQ7v6dPAQSSac=
             - APP_DEBUG=true
             - APP_URL=http://localhost
             # keycloak configuration
             - KEYCLOAK_BASE_URL=https://sso-dev.indonesian-aerospace.com
             - KEYCLOAK_REALM=dev
-            - KEYCLOAK_CLIENT_ID=kedb
+            - KEYCLOAK_CLIENT_ID=divisitor
             - KEYCLOAK_REDIRECT_URL=http://localhost:8000
             # database connection
             - DB_CONNECTION=pgsql

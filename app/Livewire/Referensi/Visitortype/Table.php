@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Referensi\visitortype;
 
-use App\Models\Referensi;
+use App\Models\VisitorType;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -24,38 +24,22 @@ class Table extends Component
         }
     }
 
-    public function setVisitortypeId($value)
-    {
-        $this->setVisitortypeId = $value;
-    }
-
-    public function delete()
-    {
-        $visitortype = Referensi::find($this->setVisitortypeId);
-        $visitortype->delete();
-
-        flash()->addSuccess('Incident or problem successfully deleted');
-
-        $this->resetPage();
-        $this->redirectRoute('incident');
-    }
-
-    #[On('undangan-deleted')]
-    #[On('undangan-updated')]
+    #[On('visitortype-update')]
+    #[On('visitortype-delete')]
     public function render()
     {
         $datavisitortype = [];
 
         if (!empty($this->search)) {
 
-            $datavisitortype = Referensi::orderBy('i_id', 'asc')
+            $datavisitortype = VisitorType::orderBy('i_id', 'asc')
                 ->where('n_type', 'ilike', "%{$this->search}%")
                 ->orWhere('c_active', 'ilike', "%{$this->search}%")
                 ->orWhere('i_entry', 'ilike', "%{$this->search}%")
                 ->orWhere('d_entry', 'ilike', "%{$this->search}%")
                 ->paginate($this->rowsPerPage);
         } else {
-            $datavisitortype = Referensi::paginate($this->rowsPerPage);
+            $datavisitortype = VisitorType::paginate($this->rowsPerPage);
         }
 
         return view('livewire.referensi.visitortype.table', [
