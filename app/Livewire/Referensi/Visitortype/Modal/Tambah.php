@@ -39,7 +39,7 @@ class Tambah extends Component
             $this->form->store();
         }
 
-        flash()->addSuccess('Undangan successfully ' . ($this->update ? 'updated' : 'added'));
+        flash()->addSuccess('Visitor type successfully ' . ($this->update ? 'updated' : 'added'));
         $this->dispatch('visitortype-updated');
         $this->redirect('referensi');
     }

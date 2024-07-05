@@ -24,7 +24,6 @@ class Table extends Component
         }
     }
 
-    #[On('visitortype-create')]
     #[On('visitortype-update')]
     #[On('visitortype-delete')]
     public function render()
