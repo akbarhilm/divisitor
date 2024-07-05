@@ -55,6 +55,14 @@
                         </a>
                         <x-button
                             icon
+                            color="info"
+                            
+                            wire:click="send({{$item->id}})"
+                        >
+                        <x-icon.mail/>
+                        </x-button>
+                        <x-button
+                            icon
                             color="warning"
                             modal="undangan-modal-form"
                             wire:mouseenter="$dispatch('update-undangan', { id: {{ $item->id }} })"

@@ -5,23 +5,26 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class Ask extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $name;
-    public $ticket;
+    public $undangan;
+    public $pdf;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $ticket)
+    public function __construct($undangan,$pdf)
     {
-        $this->name = $name;
-        $this->ticket = $ticket;
+        $this->undangan = $undangan;
+        $this->pdf = $pdf;
+        //$this->tamu = $tamu;
     }
 
     /**
@@ -29,7 +32,7 @@ class Ask extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(subject: config('app.name') . ' - Ask');
+        return new Envelope(subject: config('app.name') . ' - Visitor');
     }
 
     /**
@@ -38,7 +41,7 @@ class Ask extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.ask',
+            view: 'mail.invitation',
         );
     }
 
@@ -49,6 +52,10 @@ class Ask extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        
+        return [
+            Attachment::fromData(fn () => $this->pdf, 'Invitation.pdf')
+                ->withMime('application/pdf'),
+        ];
     }
 }

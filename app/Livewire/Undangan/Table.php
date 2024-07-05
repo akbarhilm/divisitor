@@ -3,9 +3,14 @@
 namespace App\Livewire\Undangan;
 
 use App\Models\Undangan;
+use App\Models\Tamu;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Mail\Ask;
+use Illuminate\Support\Facades\Mail;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Dompdf\Dompdf;
 
 class Table extends Component
 {
@@ -14,7 +19,7 @@ class Table extends Component
     public $rowsPerPage = 5;
     public $rowsPerPageOptions = [5, 10, 20];
     public $search = '';
-
+    public $id;
     public function updated($property)
     {
         if ($property == 'rowsPerPage' || $property == 'search') {
@@ -50,6 +55,31 @@ class Table extends Component
         return view('livewire.undangan.table', [
             'undangans' => $undangans
         ]);
+    }
+    public function send($id){
+        //dd($id);
+       // $user = $this->form->store(ask: true);
+       $undangan = [];
+       $tamu = [];
+       $tamu = Tamu::where('i_idvms','=',$id)->get();
+       $undangan = Undangan::find($id);
+       $pdf = Pdf::loadView('mail.invitation', ['undangan'=>$undangan])->output();
+       $email = new Ask($undangan,$pdf);
+
+      foreach($tamu as $t){
+        Mail::to($t->n_visitor_email)->send($email);
+      }
+       
+        
+        //$pdf = Pdf::loadView('mail.invitation', ['undangan'=>$undangan]);
+       
+        
+       
+
+        flash()->addSuccess('Invitation has been sent.');
+
+        //$this->redirectRoute('undangan');
+
     }
 }
 

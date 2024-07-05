@@ -44,9 +44,9 @@ class AppServiceProvider extends ServiceProvider
         });
 
         switch (config('app.env')) {
-            case 'local':
+            case 'local':Mail::alwaysTo('ahilman@indonesian-aerospace.com');
             case 'dev':
-                Mail::alwaysTo('mfahrul@indonesian-aerospace.com');
+                Mail::alwaysTo('ahilman@indonesian-aerospace.com');
                 break;
             case 'test':
                 Mail::alwaysTo('qa-it@indonesian-aerospace.com');

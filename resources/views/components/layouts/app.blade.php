@@ -93,9 +93,9 @@
 <body>
     <div class="page {{ Auth::check() ? '' : 'page-center' }}">
         <x-partials.header />
-        {{-- @auth --}}
+        @auth
             <x-partials.navbar />
-        {{-- @endauth --}}
+        @endauth
         <div class="page-wrapper">
             {{ $slot }}
         </div>
