@@ -29,8 +29,8 @@ class VisitorCategory extends Model
 
     protected $maps = [
         'id'                => 'i_id',
-        'categ' => 'n_categ',
-        'status'      => 'c_active',
+        'category'             => 'n_categ',
+        'status'            => 'c_active',
         'created_by'        => 'i_entry',
         'created_at'        => 'd_entry',
         'updated_by'        => 'i_update',
@@ -39,7 +39,7 @@ class VisitorCategory extends Model
 
     protected $fillable = [
         'id',
-        'categ',
+        'category',
         'status',
         'created_by',
         'created_at',
