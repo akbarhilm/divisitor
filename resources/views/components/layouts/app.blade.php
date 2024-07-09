@@ -11,32 +11,15 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <meta
-        http-equiv="X-UA-Compatible"
-        content="ie=edge"
-    />
+    <link rel="icon" href={{ asset('ptdi.ico') }}>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{ config('app.name') }}</title>
     <!-- CSS files -->
-    <link
-        href={{ asset('dist/css/tabler.min.css') }}
-        rel="stylesheet"
-    />
-    <link
-        href={{ asset('dist/css/tabler-vendors.min.css') }}
-        rel="stylesheet"
-    />
-    <link
-        href={{ asset('dist/css/demo.min.css') }}
-        rel="stylesheet"
-    />
-    <link
-        href={{ asset('dist/css/font.css') }}
-        rel="stylesheet"
-    />
+    <link href={{ asset('dist/css/tabler.min.css') }} rel="stylesheet" />
+    <link href={{ asset('dist/css/tabler-vendors.min.css') }} rel="stylesheet" />
+    <link href={{ asset('dist/css/demo.min.css') }} rel="stylesheet" />
+    <link href={{ asset('dist/css/font.css') }} rel="stylesheet" />
     <style>
         .rotate-90 {
             transform: rotate(90deg);
@@ -94,7 +77,7 @@
     <div class="page {{ Auth::check() ? '' : 'page-center' }}">
         <x-partials.header />
         @auth
-            <x-partials.navbar />
+        <x-partials.navbar />
         @endauth
         <div class="page-wrapper">
             {{ $slot }}
@@ -102,22 +85,10 @@
         <x-partials.footer />
     </div>
     <!-- another JS files -->
-    <script
-        src={{ asset('dist/js/tabler.min.js') }}
-        defer
-    ></script>
-    <script
-        src={{ asset('dist/js/demo.min.js') }}
-        defer
-    ></script>
-    <script
-        src={{ asset('dist/libs/tom-select/dist/js/tom-select.base.min.js') }}
-        defer
-    ></script>
-    <script
-        src={{ asset('dist/libs/litepicker/dist/litepicker.js') }}
-        defer
-    ></script>
+    <script src={{ asset('dist/js/tabler.min.js') }} defer></script>
+    <script src={{ asset('dist/js/demo.min.js') }} defer></script>
+    <script src={{ asset('dist/libs/tom-select/dist/js/tom-select.base.min.js') }} defer></script>
+    <script src={{ asset('dist/libs/litepicker/dist/litepicker.js') }} defer></script>
     @stack('script')
 </body>
 

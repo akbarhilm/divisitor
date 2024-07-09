@@ -36,9 +36,9 @@ class VisitortypeForm extends Form
     {
         $this->visitortype = $visitortype;
 
-        $this->namatypekunjungan = $visitortype->subject;
-        $this->receiveStats = $visitortype->subject;
-        $this->created_by = $visitortype->created_by;
+        $this->namatypekunjungan = $visitortype->n_type;
+        $this->receiveStats = $visitortype->c_active;
+        $this->created_by = $visitortype->i_entry;
     }
 
     public function update()
@@ -47,8 +47,6 @@ class VisitortypeForm extends Form
         $this->updated_by = '930075';    //Auth::user()->nik;
 
         $visitortype = Visitortype::find($this->visitortype->id);
-
-        //$this->file = $this->fileTransaction($resolution->file, $this->file);
 
         $this->visitortype->update($this->validate());
     }
