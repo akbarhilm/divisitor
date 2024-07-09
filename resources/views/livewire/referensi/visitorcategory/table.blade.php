@@ -2,7 +2,7 @@
     <x-card.header>
         <div class="d-flex justify-content-between align-items-center w-100">
             <h3 class="m-0">
-                Visitor Type
+                Visitor Category
             </h3>
 
             <div class="d-flex align-items-center gap-4">
@@ -12,7 +12,7 @@
                     @endforeach
                 </x-select>
                 <x-search placeholder="Search" wire:model.live="search" />
-                <x-button color="primary" modal="modal-tambahvisitortype" wire:mouseenter="$dispatch('create-referensi')">
+                <x-button color="primary" modal="modal-tambahvisitortype" wire:click="$dispatch('visitortype-create')">
                     <x-icon.plus />
                     Create
                 </x-button>
@@ -32,25 +32,32 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($datavisitortype as $item)
+                @foreach ($datavisitorcateg as $item)
                     <tr>
                         <td class="w-1">
                             {{ $item->i_id }}
                         </td>
                         <td class="">
-                            {{ $item->n_type }}
+                            {{ $item->n_categ }}
                         </td>
                         <td class="text-nowrap">
                             {{ $item->c_active == '0' ? 'Tidak Aktif' : 'Aktif' }}
                         </td>
                         <td class="w-1">
-                            <div class="d-flex align-content-center gap-2">
-                                <x-button icon color="danger" modal="modal-delete" wire:mouseenter="">
-                                    <x-icon.trash />
-                                </x-button>
-                                <x-button icon color="warning" wire:navigate href="">
-                                    <x-icon.pencil />
-                                </x-button>
+                            <div class="dropdown">
+                                <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown">Action</a>
+                                <div class="dropdown-menu">
+                                    <x-button class="border-0 shadow-none dropdown-item justify-content-start"
+                                        modal="modal-tambahvisitortype"
+                                        wire:click="$dispatch('visitortype-update', { id: {{ $item->i_id }} })">
+                                        Edit
+                                    </x-button>
+                                    <x-button modal="modal-delete"
+                                        class="border-0 shadow-none dropdown-item justify-content-start"
+                                        wire:click="$dispatch('visitortype-delete', { id: {{ $item->i_id }} })">
+                                        Delete
+                                    </x-button>
+                                </div>
                             </div>
                             {{-- <x-button icon color="warning" wire:navigate
                                 href="{{ route('incident-edit', ['id' => $item->id]) }}">
@@ -68,7 +75,8 @@
     </x-card.body>
 
     <x-card.footer class="d-flex align-items-center border-top-0">
-        <x-pagination :resources="$datavisitortype" />
+        <x-pagination :resources="$datavisitorcateg" />
     </x-card.footer>
-    <livewire:referensi.visitortype.tambah />
+    <livewire:referensi.visitortype.modal.tambah />
+    <livewire:referensi.visitortype.modal.delete />
 </x-card>
