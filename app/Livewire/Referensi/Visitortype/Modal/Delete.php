@@ -25,6 +25,6 @@ class Delete extends Component
         flash()->addSuccess('Visitor Type successfully deleted');
 
         $this->dispatch('visitortpye-delete');
-        $this->redirect('referensi');
+        $this->redirect('referensi-visitortype');
     }
 }

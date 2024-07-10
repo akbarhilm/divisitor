@@ -5,6 +5,7 @@ namespace App\Livewire\Forms;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 use App\Models\Visitortype;
+use Illuminate\Support\Facades\Auth;
 
 class VisitortypeForm extends Form
 {
@@ -28,7 +29,7 @@ class VisitortypeForm extends Form
     public function store()
     {
         $this->validate();
-        $this->created_by = "930075";    // fixme
+        $this->created_by = Auth::user()->nik;
         Visitortype::create($this->all());
     }
 
@@ -44,7 +45,7 @@ class VisitortypeForm extends Form
     public function update()
     {
         $this->updated_at = now();
-        $this->updated_by = '930075';    //Auth::user()->nik;
+        $this->updated_by = Auth::user()->nik;
 
         $visitortype = Visitortype::find($this->visitortype->id);
 

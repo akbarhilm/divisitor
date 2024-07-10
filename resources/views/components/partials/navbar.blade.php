@@ -3,8 +3,10 @@
         <div class="navbar">
             <div class="container-xl ">
                 <ul class="navbar-nav gap-3 mx-xs-3">
-                    <li @class([ 'nav-item' , 'active'=> Route::currentRouteName() == 'dashboard',
-                        ])>
+                    <li @class([
+                        'nav-item',
+                        'active' => Route::currentRouteName() == 'dashboard',
+                    ])>
                         <a class="nav-link p-0" href="{{ route('dashboard') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                 <x-icon.home />
@@ -14,13 +16,17 @@
                             </span>
                         </a>
                     </li>
-                    <li @class([ 'nav-item' ,'dropdown', 'active'=> Route::currentRouteName() == 'referensi'])>
+                    <li @class([
+                        'nav-item',
+                        'dropdown',
+                        'active' => Route::currentRouteName() == 'visitortype',
+                    ])>
                         <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside" role="button" aria-expanded="false">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="icon">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5"></path>
                                     <path d="M12 12l8 -4.5"></path>
@@ -36,19 +42,25 @@
                         <div class="dropdown-menu">
                             <div class="dropdown-menu-columns">
                                 <div class="dropdown-menu-column">
-                                    <a @class([ 'dropdown-item' , 'active'=> Route::currentRouteName() =='referensi'])
-                                        href="{{ route('referensi') }}">
+                                    <a @class([
+                                        'dropdown-item',
+                                        'active' => Route::currentRouteName() == 'visitortype',
+                                    ]) href="{{ route('visitortype') }}">
                                         Visitor Type
                                     </a>
-                                    <a class="dropdown-item" href="#">
-                                        Category
+                                    <a @class([
+                                        'dropdown-item',
+                                        'active' => Route::currentRouteName() == 'visitorcategory',
+                                    ]) href="{{ route('visitorcategory') }}">
+                                        Visitor Category
                                     </a>
-
                                 </div>
                             </div>
                     </li>
-                    <li @class([ 'nav-item' , 'active'=> Route::currentRouteName() == 'undangan',
-                        ])>
+                    <li @class([
+                        'nav-item',
+                        'active' => Route::currentRouteName() == 'undangan',
+                    ])>
                         <a class="nav-link p-0" href="{{ route('undangan') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                 <x-icon.dashboard />

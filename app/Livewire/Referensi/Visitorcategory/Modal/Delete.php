@@ -10,7 +10,7 @@ class Delete extends Component
 {
     public $visitorId;
 
-    #[On('visitor-delete')]
+    #[On('visitorcategory-delete')]
     public function setVisitorId($id)
     {
         $this->visitorId = $id;
@@ -25,6 +25,6 @@ class Delete extends Component
         flash()->addSuccess('Visitor Category successfully deleted');
 
         $this->dispatch('visitor-delete');
-        $this->redirect('referensi');
+        $this->redirect('referensi-visitorcategory');
     }
 }

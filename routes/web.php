@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Undangan;
 use App\Livewire\Tamu;
 use App\Livewire\Send;
-use App\Livewire\Referensi;
+use App\Livewire\Visitortype;
+use App\Livewire\Visitorcategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,8 @@ Route::group(['middleware' => 'keycloak-web'], function () {
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/undangan', Undangan::class)->name('undangan');
     //Route::get('/send/{id}', Send::class)->name('send');
-    Route::get('/referensi', Referensi::class)->name('referensi');
+    Route::get('/referensi-visitortype', Visitortype::class)->name('visitortype');
+    Route::get('/referensi-visitorcategory', Visitorcategory::class)->name('visitorcategory');
     Route::get('/resolution', Resolution::class)->name('resolution');
     Route::get('/incident', Incident::class)->name('incident');
     Route::get('/incident/{id}/edit', IncidentEdit::class)->name('incident-edit');
