@@ -2,10 +2,11 @@
 
 namespace App\Livewire\Referensi\Visitortype\Modal;
 
+use Illuminate\Database\QueryException;
 use Livewire\Component;
-use App\Livewire\Forms\VisitortypeForm;
 use App\Models\VisitorType;
 use Livewire\Attributes\On;
+use App\Livewire\Forms\VisitortypeForm;
 
 class Tambah extends Component
 {
@@ -36,10 +37,14 @@ class Tambah extends Component
         if ($this->update) {
             $this->form->update();
         } else {
-            $this->form->store();
+            try {
+                $this->form->store();
+                flash()->addSuccess('Visitor Type successfully Added');
+            } catch (QueryException $e) {
+                flash()->addError('Error', 'Type Kunjungan Sudah Ada');
+            }
         }
 
-        flash()->addSuccess('Visitor type successfully ' . ($this->update ? 'updated' : 'added'));
         $this->dispatch('visitortype-updated');
         $this->redirect('referensi-visitortype');
     }
