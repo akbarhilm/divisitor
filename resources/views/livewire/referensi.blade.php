@@ -8,7 +8,8 @@
             </div>
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
-                    <x-button color="primary" modal="modal-form" wire:mouseenter="$dispatch('create-incident')">
+                    <x-button color="primary" modal="modal-tambahvisitortype"
+                        wire:mouseenter="$dispatch('visitortype-create">
                         <x-icon.plus />
                         Create
                     </x-button>
