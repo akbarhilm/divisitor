@@ -28,10 +28,12 @@ code.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
 
        
 $('#undangan-modal-form').on('hidden.bs.modal', function () {
+    if(code.getState()===2){
     code.stop().then((ignore) => {
        console.log(ignore)
     }).catch((err) => {
         console.log(err)
     });
+}
 });
 
