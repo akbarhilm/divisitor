@@ -39,7 +39,7 @@ class Table extends Component
                 ->orWhere('d_entry', 'ilike', "%{$this->search}%")
                 ->paginate($this->rowsPerPage);
         } else {
-            $datavisitortype = VisitorType::paginate($this->rowsPerPage);
+            $datavisitortype = VisitorType::orderByRaw('d_update desc nulls last')->paginate($this->rowsPerPage);
         }
 
         return view('livewire.referensi.visitortype.table', [

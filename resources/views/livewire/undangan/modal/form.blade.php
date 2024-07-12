@@ -47,6 +47,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <x-input
+						type="time"
                         label="Jam Start"
                         placeholder="Enter Jam Start"
                         wire:model="form.jamStart"
@@ -54,12 +55,29 @@
                 </div>
                 <div class="col-lg-6">
                     <x-input
+						type="time"
                         label="Jam Finish"
                         placeholder="Enter Jam Finish"
                         wire:model="form.jamFinish"
                     />
                 </div>
-            </div>				
+            </div>
+			{{--
+<div  class="row">
+   <div class="col-lg-6">
+    <label for="time1">Time 1:</label>
+    <input id="time1" wire:model="time1" type="time">
+    @error('time1') <span class="error">Hellloooooo</span> @enderror
+   </div>
+
+   <div class="col-lg-6">
+    <label for="time2">Time 2:</label>
+    <input id="time2" wire:model="time2" type="time">
+    @error('time2') <span class="error">Uhuiiiiiiii</span> @enderror
+   </div>
+</div>
+			<br><br>--}}
+			
             <div x-show="0==$wire.receiveStats" class="row">
                 <div class="col-lg-6">
                     <x-select

@@ -19,17 +19,22 @@ class UndanganForm extends Form
 
 	public $pengundangTampil;
 
-    #[Validate('required', message: "Please provide tanggal rapat")]
+    //#[Validate('required', message: "Please provide tanggal rapat")]
 	public $tanggal;
 
+/*
     #[Validate('required', message: "Please provide jam start")]
     #[Validate('regex:^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$^', message: "Jam harus sesuai dengan format ini hh:mm")]
     #[Validate('max:6', message: "Jam start maksimum 6 digits.")]
+    #[Validate('required_if:selisihJam,0', message: "Jam finish tidak boleh sama atau sebelum jam start.")]
+*/
 	public $jamStart;
-
+/*
     #[Validate('required', message: "Please provide jam finish")]
     #[Validate('regex:^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$^', message: "Jam harus sesuai dengan format ini hh:mm")]
     #[Validate('max:6', message: "Jam finish maksimum 6 digits.")]
+    #[Validate('required_if:selisihJam,0', message: "Jam finish tidak boleh sama atau sebelum jam start.")]
+*/
 	public $jamFinish;
 
     #[Validate('required_if:jenisRapat,0', message: "Please choose building")]
@@ -56,7 +61,7 @@ class UndanganForm extends Form
 	public $uraian;
 
     #[Validate('required', message: "Please provide organisasi pengundang")]
-	public $orgPengundang='IT2400';
+	public $orgPengundang;
 
     #[Validate('nullable')]
     public $created_by;
@@ -67,6 +72,12 @@ class UndanganForm extends Form
     #[Validate('nullable')]
     public $updated_at;
 
+    #[Validate('nullable')]
+    public $cekTanggal;
+
+    #[Validate('nullable')]
+    public $selisihJam;
+	
     public function store()
     {
         $this->pengundang = Auth::user()->nik;
@@ -77,6 +88,33 @@ class UndanganForm extends Form
 
         Undangan::create($this->validate());
     }
+	
+	protected $rules = [
+		'tanggal' => 'required|date|after_or_equal:today',	
+        //'jamStart' => 'required|date_format:H:i',
+		'jamStart' => 'required|date_format:H:i|after_or_equal:currentTimeIfToday',		
+        //'jamFinish' => 'required|date_format:H:i|after_or_equal:jamStart',
+        'jamFinish' => 'required|date_format:H:i|after:jamStart',
+    ];
+
+    protected $messages = [
+        'tanggal.required' => 'Please provide tanggal.',
+        'jamStart.required' => 'Please provide jam start.',
+        'jamStart.after_or_equal' => 'The selected time cannot be before the current time.',
+        'jamFinish.required' => 'Please provide jam finish.',
+        'jamFinish.after' => 'Jam finish tidak boleh sama dengan atau sebelum jam start.',
+        'tanggal.after_or_equal' => 'Tanggal harus setelah atau sama dengan hari ini.',
+    ];
+	
+	
+    public function updated($propertyName)
+    {
+        //$this->validateOnly($propertyName);
+		if ($propertyName === 'jamStart' && $this->tanggal === now()->format('Y-m-d')) {
+            $this->validateOnly('jamStart');
+        }		
+    }
+	
 	
     public function setUndangan(Undangan $undangan)
     {
