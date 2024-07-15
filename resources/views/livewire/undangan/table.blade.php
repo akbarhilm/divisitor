@@ -67,7 +67,7 @@
 						<x-button
                             icon
                             color="info"
-                            
+                            title="Approve"
                             wire:click="approve({{$item->id}})"
                         >
                         <x-icon.check/>
