@@ -11,6 +11,7 @@
                     <x-button
                         color="primary"
                         modal="undangan-modal-form"
+						title="Membuat Undangan"
                         wire:mouseenter="$dispatch('create-undangan')"
                     >
                         <x-icon.plus />
@@ -25,5 +26,5 @@
     </x-page.body>
     <livewire:undangan.modal.form />
     <livewire:undangan.modal.delete />
-
+	
 </div>

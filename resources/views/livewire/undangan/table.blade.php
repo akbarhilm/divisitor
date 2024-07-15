@@ -60,14 +60,15 @@
                             class="btn btn-icon btn-success"
                             target="_blank"
 							href="{{ route('tamu', ['id' => $item->id]) }}"
+							title="Peserta"
                         >
                             <x-icon.person />
                         </a>
-                       
                         <x-button
                             icon
                             color="warning"
                             modal="undangan-modal-form"
+							title="Edit"
                             wire:mouseenter="$dispatch('update-undangan', { id: {{ $item->id }} })"
                         >
                             <x-icon.pencil />
@@ -76,6 +77,7 @@
                             icon
                             color="danger"
                             modal="undangan-modal-delete"
+							title="Delete"
                             wire:click="$dispatch('set-undangan-id', { id: {{ $item->id }} })"
                         >
                             <x-icon.trash />
