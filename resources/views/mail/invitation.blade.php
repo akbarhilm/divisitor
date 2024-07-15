@@ -39,6 +39,9 @@
             .p-2 {
                 padding: 0.5rem;
             }
+            .p-12 {
+                margin-left: 12%;
+            }
 
             .text-muted {
                 color: #6c757d;
@@ -172,37 +175,57 @@
                                 valign="top">
                                 <center>
                                     <div class="d-flex align-items-center flex-column">
-                                        <div class="mb-auto p-2 align-items-center"> <img
-                                                src="data:image/png;base64, {!! base64_encode(
-                                                    QrCode::format('png')->size(128)->generate($undangan->c_meet_qr),
-                                                ) !!} "></div>
-
-                                        <div class="p-2">
-                                            <h3>
-                                                <small
-                                                    class="text-muted">{{ implode(' ', str_split($undangan->c_meet_qr)) }}</small>
-                                            </h3>
+                                        <div class="mb-auto p-2 align-items-center">
+                                            @if ($undangan->c_meet_online == "1")
+                                            <img
+                                            src="data:image/png;base64, {!! base64_encode(
+                                                QrCode::format('png')->size(128)->generate($undangan->n_meet_link), ) !!} ">
+                                            @else
+                                            <img
+                                            src="data:image/png;base64, {!! base64_encode(
+                                                QrCode::format('png')->size(128)->generate($undangan->c_meet_qr), ) !!} ">
+                                            @endif 
                                         </div>
 
+                                        @if ($undangan->c_meet_online == "1")
+                                            <div class="p-2">
+                                                <h3>
+                                                    <small class="text-muted">link : {{ $undangan->n_meet_link }}</small>
+                                                </h3>
+                                            
+                                                <h3>
+                                                    <small class="text-muted">password : {{ $undangan->i_meet_password }}</small>
+                                                </h3>
+                                            </div>
+                                        @else
+                                            <div class="p-2">
+                                                <h3>
+                                                    <small class="text-muted">{{ implode(' ', str_split($undangan->c_meet_qr)) }}</small>
+                                                    
+                                                </h3>
+                                            </div>
+                                        @endif
+                                                
+                                          
 
 
 
+                                    </div>
+                                </center>
 
 
-
-
-                                        <div class="p-2 w-75">
+                                        <div class="p-12 w-75">
                                            
-                                            <div>
-                                               
+                                          
+                                              
                                                 <table 
-                                            style="table-layout: fixed; border: 0.5px solid #cfcfcf;
+                                            style="border: 0.5px solid #cfcfcf;
                                                 border-right-width:0px;
                                                 border-left-width:0px;
                                                 width:100%" >
                                             <tr>
                                                 <td>
-                                                    <small class="text-muted">Tanggal</small>
+                                                   <center> <small class="text-muted">Tanggal</small></center>
                                                 </td>
                                                 <td>
                                                     :
@@ -213,7 +236,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <small class="text-muted">Jam</small>
+                                                    <center><small class="text-muted">Jam</small></center>
                                                 </td>
                                                 <td>
                                                     :
@@ -224,14 +247,14 @@
                                             </tr>
 
                                         </table>
-                                                
-                                            </div>
+                                   
+                                          
                                         
                                         </div>
 
-                                    </div>
+                                    
 
-                                </center>
+                               <div class="p-2">
                                 <p
                                     style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">
                                 <h3> Peraturan Tamu </h3>
@@ -259,7 +282,8 @@
                                 </ol>
                                 <p
                                     style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">
-                            </td>
+                            </div>
+                                </td>
                         </tr>
                     </table>
                     <div class="footer" style="clear: both; padding-top: 24px; text-align: center; width: 100%;">

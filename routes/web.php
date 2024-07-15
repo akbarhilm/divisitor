@@ -9,6 +9,7 @@ use App\Mail\Ask;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Undangan;
+use App\Livewire\Absensi;
 use App\Livewire\Tamu;
 use App\Livewire\Send;
 use App\Livewire\Visitortype;
@@ -31,6 +32,7 @@ Route::group(['middleware' => 'keycloak-web'], function () {
     //Route::get('/send/{id}', Send::class)->name('send');
     Route::get('/referensi-visitortype', Visitortype::class)->name('visitortype');
     Route::get('/referensi-visitorcategory', Visitorcategory::class)->name('visitorcategory');
+    Route::get('/absensi', Absensi::class)->name('absensi');
     Route::get('/resolution', Resolution::class)->name('resolution');
     Route::get('/incident', Incident::class)->name('incident');
     Route::get('/incident/{id}/edit', IncidentEdit::class)->name('incident-edit');

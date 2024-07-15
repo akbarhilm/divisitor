@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Undangan;
+namespace App\Livewire\Absensi;
 
 use App\Models\Undangan;
 use App\Models\Tamu;
@@ -15,18 +15,32 @@ use Dompdf\Dompdf;
 class Table extends Component
 {
     use WithPagination;
-
+    protected $listeners = [
+        'searchinput'
+   ];
     public $rowsPerPage = 5;
     public $rowsPerPageOptions = [5, 10, 20];
     public $search = '';
     public $id;
+
+    public function searchinput($value)
+{
+    if(!is_null($value))
+        $this->search = $value;
+}
+
     public function updated($property)
     {
         if ($property == 'rowsPerPage' || $property == 'search') {
             $this->resetPage();
         }
     }
-
+    // #[on('searchupdate')]
+    // public function searchinput($value)
+    // {
+    //     if(!is_null($value))
+    //         $this->search = $value;
+    // }
     #[On('undangan-deleted')]
     #[On('undangan-updated')]
     public function render()
@@ -35,24 +49,27 @@ class Table extends Component
 		
         if (!empty($this->search)) {
             //$undangans = Undangan::with(['e_meet_subject', 'e_meet'])
-            $undangans = Undangan::orderBy('i_id','asc')
-                ->where('e_meet_subject', 'like', "%{$this->search}%")
+            $undangans = Undangan::orderBy('d_meet_timestart','asc')
+                ->whereRaw("to_char(d_meet,'YYYYMMDD') = to_char(now(),'YYYYMMDD') and c_meet_stat = '2' and c_meet_online='0' and c_meet_qr = '{$this->search}'")
                 /*->orWhereHas('service_catalog', function ($q) {
                     $q->where('n_serv', 'like', "%{$this->search}%");
                 })
                 ->orWhereHas('level', function ($q) {
                     $q->where('n_kedb_lvl', 'like', "%{$this->search}%");
                 })*/
-                ->orWhere('c_meet_online', 'like', "%{$this->search}%")
-                ->orWhere('e_meet', 'like', "%{$this->search}%")
-                ->orWhere('i_entry', 'like', "%{$this->search}%")
-                ->orWhere('d_entry', 'like', "%{$this->search}%")
+                // ->orWhere('c_meet_online', 'like', "%{$this->search}%")
+                // ->orWhere('e_meet', 'like', "%{$this->search}%")
+                // ->orWhere('i_entry', 'like', "%{$this->search}%")
+                // ->orWhere('d_entry', 'like', "%{$this->search}%")
+                // ->orWhere('c_meet_qr','like',"%{$this->search}%")
                 ->paginate($this->rowsPerPage);
+               
         } else {
-            $undangans = Undangan::paginate($this->rowsPerPage);
-        }
+            $undangans = Undangan::whereRaw("to_char(d_meet,'YYYYMMDD') = to_char(now(),'YYYYMMDD') and c_meet_stat = '2' and c_meet_online='0'")->paginate($this->rowsPerPage);
 
-        return view('livewire.undangan.table', [
+        }
+       // dd($undangans);
+        return view('livewire.absensi.table', [
             'undangans' => $undangans
         ]);
     }
@@ -63,10 +80,12 @@ class Table extends Component
        $tamu = [];
        $tamu = Tamu::where('i_idvms','=',$id)->get();
        $undangan = Undangan::find($id);
-       
+       if($undangan->c_meet_online == "1"){
        $pdf = Pdf::loadView('mail.invitation', ['undangan'=>$undangan])->output();
        $email = new Ask($undangan,$pdf);
-       
+       }else{
+        
+       }
       foreach($tamu as $t){
         Mail::to($t->n_visitor_email)->send($email);
       }
