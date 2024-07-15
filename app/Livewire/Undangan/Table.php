@@ -82,5 +82,16 @@ class Table extends Component
         //$this->redirectRoute('undangan');
 
     }
+	
+    public function approve($id){
+		//$undangan = Undangan::find($id);
+		//$undangan->update(['c_meet_stat' => 1]);
+		Undangan::where('i_id', $id)
+		->update(['c_meet_stat' => 1]);		
+       
+        flash()->addSuccess('Undangan has been approved.');
+		$this->dispatch('undangan-updated');
+
+    }	
 }
 

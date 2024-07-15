@@ -64,6 +64,14 @@
                         >
                             <x-icon.person />
                         </a>
+						<x-button
+                            icon
+                            color="info"
+                            
+                            wire:click="approve({{$item->id}})"
+                        >
+                        <x-icon.check/>
+                        </x-button>						
                         <x-button
                             icon
                             color="warning"
