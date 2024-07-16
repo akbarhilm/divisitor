@@ -78,6 +78,7 @@
                             icon
                             color="warning"
                             modal="tamu-modal-form"
+							title="Edit"							
                             wire:mouseenter="$dispatch('update-tamu', { id: {{ $item->id }} })"
                         >
                             <x-icon.pencil />
@@ -86,6 +87,7 @@
                             icon
                             color="danger"
                             modal="tamu-modal-delete"
+							title="Delete"
                             wire:click="$dispatch('set-tamu-id', { idvms: {{ $item->idvms }},id: {{ $item->id }} })"
                         >
                             <x-icon.trash />

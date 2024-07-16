@@ -49,7 +49,7 @@ class Table extends Component
                 ->orWhere('d_entry', 'like', "%{$this->search}%")
                 ->paginate($this->rowsPerPage);
         } else {
-            $undangans = Undangan::paginate($this->rowsPerPage);
+            $undangans = Undangan::orderBy('i_id','asc')->paginate($this->rowsPerPage);
         }
 
         return view('livewire.undangan.table', [
@@ -87,7 +87,7 @@ class Table extends Component
 		//$undangan = Undangan::find($id);
 		//$undangan->update(['c_meet_stat' => 1]);
 		Undangan::where('i_id', $id)
-		->update(['c_meet_stat' => 1]);		
+		->update(['c_meet_stat' => 1,'d_meet_aprv' => now()]);		
        
         flash()->addSuccess('Undangan has been approved.');
 		$this->dispatch('undangan-updated');

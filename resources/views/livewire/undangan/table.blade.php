@@ -46,6 +46,9 @@
 					{{$item->e_meet_subject}}
                     </td>
                     <td class="text-center">
+                        <div class="dropdown">
+                        <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"></a>
+                        <div class="dropdown-menu">
                         @if ("1"==$item->c_meet_stat)
                         <x-button
                             icon
@@ -90,6 +93,8 @@
                         >
                             <x-icon.trash />
                         </x-button>
+                        </div>
+                        </div>						
                     </td>
                 </tr>
             @endforeach
