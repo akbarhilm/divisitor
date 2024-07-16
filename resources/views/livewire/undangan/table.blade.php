@@ -86,6 +86,15 @@
                         </x-button>
                         <x-button
                             icon
+                            color="success"
+                            modal="undangan-modal-detail"
+							title="Detail"
+                            wire:mouseenter="$dispatch('detail-undangan', { id: {{ $item->id }} })"
+                        >
+                            <x-icon.search />
+                        </x-button>
+                        <x-button
+                            icon
                             color="danger"
                             modal="undangan-modal-delete"
 							title="Delete"

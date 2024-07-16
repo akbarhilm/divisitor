@@ -26,5 +26,6 @@
     </x-page.body>
     <livewire:undangan.modal.form />
     <livewire:undangan.modal.delete />
+    <livewire:undangan.modal.detail />
 	
 </div>
