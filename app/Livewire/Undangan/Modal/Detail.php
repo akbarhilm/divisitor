@@ -32,25 +32,21 @@ class Detail extends Component
         $undangan = Undangan::find($id);
 		$this->receiveStats = $undangan->jenisRapat;
         $this->form->setUndangan($undangan);
-		//$bldg = Building::find($undangan->building_id);
 		$bldg = Building::select('n_bldg')->where('i_id', $undangan->building_id)->get();
 		$this->form->building_id = $undangan->building_id."-".$bldg[0]->n_bldg;// di isi nama gedung
         //$this->form->resetValidation();	
 		$tamu = Tamu::where('i_idvms','=',$id)->get();
 		$temp = [];
 		foreach($tamu as $t){
-			$idt =  $t->id;
-			//$tipe = Tipe::select('n_type')->where('i_id', $idt)->get();
-			$tipe = Tipe::find($idt);
-			//if(count($tipe) > 0)
-			if($tipe)
-				$t->tipe = $tipe->n_type;
-			$ktgr = Kategori::select('n_categ')->where('i_id', $idt)->get();
+			$ktgr = Kategori::select('n_categ')->where('i_id', $t->kategori)->get();
 			if(count($ktgr) > 0)
 				$t->kategori = $ktgr[0]->n_categ;
+			//$tipe = Tipe::find($idt);
+			$tipe = Tipe::select('n_type')->where('i_id', $t->tipe)->get();
+			if(count($tipe) > 0)
+				$t->tipe = $tipe[0]->n_type;
 			array_push($temp,$t);
 		}		
-		//$this->tamu = Tamu::where('i_idvms','=',$id)->get();
 		$this->tamu = $temp;		
     }
 	

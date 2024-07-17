@@ -6,6 +6,8 @@ use App\Models\Tamu;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Models\Kategori;
+use App\Models\Tipe;
 
 class Table extends Component
 {
@@ -43,10 +45,22 @@ class Table extends Component
             //$pesertas = Peserta::paginate($this->rowsPerPage);
             //$pesertas = Peserta::where('i_idvms','=',$this->undanganIdvms)->paginate($this->rowsPerPage);
             $tamu = Tamu::where('i_idvms','=',$this->id)->paginate($this->rowsPerPage);
-			//$id=1;
-            //$pesertas = Peserta::find($id);
-            //$pesertas = Peserta::all();
-        //}
+            //$tamu = Tamu::where('i_idvms','=',$this->id);
+			//$tamu = Tamu::where('i_idvms','=',$id)->get();
+			$temp = [];
+
+			$updatedItems = $tamu->getCollection();
+			foreach($updatedItems as $t) {
+				$ktgr = Kategori::select('n_categ')->where('i_id', (int)$t->kategori)->get();
+				if(count($ktgr) > 0)
+					$t->kategori = $ktgr[0]->n_categ;
+				//$tipe = Tipe::find($idt);
+				$tipe = Tipe::select('n_type')->where('i_id', $t->tipe)->get();
+				if(count($tipe) > 0)
+					$t->tipe = $tipe[0]->n_type;
+			}
+
+			$tamu->setCollection($updatedItems);			
 
         return view('livewire.tamu.table', [
             'tamu' => $tamu

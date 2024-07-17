@@ -23,7 +23,7 @@
     <x-table>
         <thead>
             <tr>
-                <th>Id Vms</th>
+				<!--<th>Id Vms</th>-->
                 <th>Id</th>
                 <th>Nama</th>
                 <th>Jumlah</th>
@@ -41,10 +41,7 @@
             @foreach ($tamu as $item)
                 <tr>
                     <td>
-                        {{ $item->idvms }}
-                    </td>
-                    <td>
-                        {{ $item->id }}
+					{{$item->id}}
                     </td>
                     <td>
 					{{$item->nama}}
