@@ -11,6 +11,7 @@ use App\Mail\Ask;
 use Illuminate\Support\Facades\Mail;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Dompdf;
+use Illuminate\Support\Facades\DB;
 
 class Table extends Component
 {
@@ -84,10 +85,12 @@ class Table extends Component
     }
 	
     public function approve($id){
-		//$undangan = Undangan::find($id);
+		$undangan = Undangan::find($id);
 		//$undangan->update(['c_meet_stat' => 1]);
+		$text = $undangan->id."-".$undangan->tanggal."-".$undangan->jamStart;
+		$cmeetqr = DB::select("SELECT get_random_string(13,'$text')");		
 		Undangan::where('i_id', $id)
-		->update(['c_meet_stat' => 1,'d_meet_aprv' => now()]);		
+			->update(['c_meet_stat' => 1,'d_meet_aprv' => now(),'c_meet_qr' => $cmeetqr[0]->get_random_string]);		
        
         flash()->addSuccess('Undangan has been approved.');
 		$this->dispatch('undangan-updated');
