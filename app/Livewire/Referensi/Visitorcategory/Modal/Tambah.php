@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Referensi\visitorcategory\Modal;
 
+use Illuminate\Database\QueryException;
 use Livewire\Component;
 use App\Livewire\Forms\VisitorcategForm;
 use App\Models\VisitorCategory;
@@ -36,11 +37,14 @@ class Tambah extends Component
         if ($this->update) {
             $this->form->update();
         } else {
-            $this->form->store();
+            try {
+                $this->form->store();
+                flash()->addSuccess('Visitor category successfully ' . ($this->update ? 'updated' : 'added'));
+            } catch (QueryException $e) {
+                flash()->addError('Error', 'Type Kunjungan Sudah Ada');
+            }
         }
 
-
-        flash()->addSuccess('Visitor category successfully ' . ($this->update ? 'updated' : 'added'));
         $this->dispatch('visitorcategory-updated');
         $this->redirect('referensi-visitorcategory');
     }

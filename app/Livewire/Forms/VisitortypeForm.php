@@ -17,11 +17,7 @@ class VisitortypeForm extends Form
     public ?Visitortype $visitortype;
 
     #[Validate([
-        'namatypekunjungan' => 'required',
-        'namatypekunjungan.*' => [
-            'required',
-            new Uppercase,
-        ],
+        'namatypekunjungan' => ['required', 'string', new Uppercase],
     ])]
     public $namatypekunjungan = [];
 
