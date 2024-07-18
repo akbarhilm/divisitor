@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Mail;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Dompdf;
 use Illuminate\Support\Facades\DB;
+use App\Models\Otoritas;
+use Illuminate\Support\Facades\Auth;
 
 class Table extends Component
 {
@@ -33,7 +35,11 @@ class Table extends Component
     public function render()
     {
         $undangans = [];
-		
+		$role = [];
+		$otoritas = Otoritas::select('i_idmodul')->where('i_emp', Auth::user()->nik)->where('c_active', '1')->get();
+		foreach($otoritas as $o){
+			array_push($role,$o->i_idmodul);
+		}
         if (!empty($this->search)) {
             //$undangans = Undangan::with(['e_meet_subject', 'e_meet'])
             $undangans = Undangan::orderBy('i_id','asc')
@@ -54,7 +60,8 @@ class Table extends Component
         }
 
         return view('livewire.undangan.table', [
-            'undangans' => $undangans
+            'undangans' => $undangans,
+            'role' => $role
         ]);
     }
     public function send($id){

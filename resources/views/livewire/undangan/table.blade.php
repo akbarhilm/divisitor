@@ -49,6 +49,7 @@
                         <div class="dropdown">
                         <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"></a>
                         <div class="dropdown-menu">
+						@if (in_array(1, $role))
                         @if ("1"==$item->c_meet_stat)
                         <x-button
                             icon
@@ -59,6 +60,8 @@
                         <x-icon.mail/>
                         </x-button>
                         @endif
+						@endif
+						@if (in_array(1, $role))
                         <a
                             class="btn btn-icon btn-success"
                             target="_blank"
@@ -67,6 +70,8 @@
                         >
                             <x-icon.person />
                         </a>
+						@endif
+						@if (in_array(2, $role))
 						<x-button
                             icon
                             color="info"
@@ -74,7 +79,9 @@
                             wire:click="approve({{$item->id}})"
                         >
                         <x-icon.check/>
-                        </x-button>						
+                        </x-button>	
+						@endif
+						@if (in_array(1, $role))
                         <x-button
                             icon
                             color="warning"
@@ -84,6 +91,7 @@
                         >
                             <x-icon.pencil />
                         </x-button>
+						@endif
                         <x-button
                             icon
                             color="success"
@@ -93,6 +101,7 @@
                         >
                             <x-icon.search />
                         </x-button>
+						@if (in_array(1, $role))
                         <x-button
                             icon
                             color="danger"
@@ -102,6 +111,7 @@
                         >
                             <x-icon.trash />
                         </x-button>
+						@endif
                         </div>
                         </div>						
                     </td>
