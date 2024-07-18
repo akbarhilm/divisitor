@@ -46,6 +46,9 @@
 					{{$item->e_meet_subject}}
                     </td>
                     <td class="text-center">
+                        <div class="dropdown">
+                        <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"></a>
+                        <div class="dropdown-menu">
                         @if ("1"==$item->c_meet_stat)
                         <x-button
                             icon
@@ -60,26 +63,47 @@
                             class="btn btn-icon btn-success"
                             target="_blank"
 							href="{{ route('tamu', ['id' => $item->id]) }}"
+							title="Peserta"
                         >
                             <x-icon.person />
                         </a>
-                       
+						<x-button
+                            icon
+                            color="info"
+                            title="Approve"
+                            wire:click="approve({{$item->id}})"
+                        >
+                        <x-icon.check/>
+                        </x-button>						
                         <x-button
                             icon
                             color="warning"
                             modal="undangan-modal-form"
+							title="Edit"
                             wire:mouseenter="$dispatch('update-undangan', { id: {{ $item->id }} })"
                         >
                             <x-icon.pencil />
                         </x-button>
                         <x-button
                             icon
+                            color="success"
+                            modal="undangan-modal-detail"
+							title="Detail"
+                            wire:mouseenter="$dispatch('detail-undangan', { id: {{ $item->id }} })"
+                        >
+                            <x-icon.search />
+                        </x-button>
+                        <x-button
+                            icon
                             color="danger"
                             modal="undangan-modal-delete"
+							title="Delete"
                             wire:click="$dispatch('set-undangan-id', { id: {{ $item->id }} })"
                         >
                             <x-icon.trash />
                         </x-button>
+                        </div>
+                        </div>						
                     </td>
                 </tr>
             @endforeach

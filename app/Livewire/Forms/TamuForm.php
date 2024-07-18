@@ -45,10 +45,10 @@ class TamuForm extends Form
 	public $kotaPerusahaan;
 
     #[Validate('required', message: "Please choose kategori")]
-    public $kategori_id;
+    public $kategori;
 
     #[Validate('required', message: "Please provide tipe")]
-	public $tipe_id;
+	public $tipe;
 
     #[Validate('nullable')]
     public $created_by;
@@ -78,16 +78,15 @@ class TamuForm extends Form
         $this->namaPerusahaan = $tamu->namaPerusahaan;
         $this->alamatPerusahaan = $tamu->alamatPerusahaan;
         $this->kotaPerusahaan = $tamu->kotaPerusahaan;
-        $this->kategori_id = $tamu->kategori_id;
-        $this->tipe_id = $tamu->tipe_id;
+        $this->kategori = $tamu->kategori;
+        $this->tipe = $tamu->tipe;
 		$this->created_by = $tamu->created_by;
     }	
 
     public function update()
     {
         $this->updated_at = now();
-        $this->updated_by = Auth::user()->nik;        	
-
+        $this->updated_by = Auth::user()->nik;        
         //$tamu = Tamu::find($this->tamu->id);
 		$tamu = Tamu::where('i_idvms', $this->tamu->idvms)->where('i_id', $this->tamu->id)->get();
         //$this->file = $this->fileTransaction($resolution->file, $this->file);

@@ -23,7 +23,7 @@
     <x-table>
         <thead>
             <tr>
-                <th>Id Vms</th>
+				<!--<th>Id Vms</th>-->
                 <th>Id</th>
                 <th>Nama</th>
                 <th>Jumlah</th>
@@ -41,10 +41,7 @@
             @foreach ($tamu as $item)
                 <tr>
                     <td>
-                        {{ $item->idvms }}
-                    </td>
-                    <td>
-                        {{ $item->id }}
+					{{$item->id}}
                     </td>
                     <td>
 					{{$item->nama}}
@@ -78,6 +75,7 @@
                             icon
                             color="warning"
                             modal="tamu-modal-form"
+							title="Edit"							
                             wire:mouseenter="$dispatch('update-tamu', { id: {{ $item->id }} })"
                         >
                             <x-icon.pencil />
@@ -86,6 +84,7 @@
                             icon
                             color="danger"
                             modal="tamu-modal-delete"
+							title="Delete"
                             wire:click="$dispatch('set-tamu-id', { idvms: {{ $item->idvms }},id: {{ $item->id }} })"
                         >
                             <x-icon.trash />
