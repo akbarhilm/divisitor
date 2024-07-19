@@ -103,5 +103,24 @@ class Table extends Component
 		$this->dispatch('undangan-updated');
 
     }	
+
+    public function close($id){
+		Undangan::where('i_id', $id)
+			->update(['c_meet_stat' => 5,'d_update' => now()]);		
+       
+        flash()->addSuccess('Undangan has been closed.');
+		$this->dispatch('undangan-updated');
+
+    }	
+
+    public function cancel($id){
+		Undangan::where('i_id', $id)
+			->update(['c_meet_stat' => 9,'d_meet_cancel' => now()]);		
+       
+        flash()->addSuccess('Undangan has been cancel.');
+		$this->dispatch('undangan-updated');
+
+    }	
+
 }
 

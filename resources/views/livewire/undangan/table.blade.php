@@ -102,6 +102,26 @@
                             <x-icon.search />
                         </x-button>
 						@if (in_array(1, $role))
+						<x-button
+                            icon
+                            color="info"
+                            title="Close"
+                            wire:click="close({{$item->id}})"
+                        >
+                        <x-icon.alert-triangle/>
+                        </x-button>	
+						@endif
+						@if (in_array(1, $role))
+						<x-button
+                            icon
+                            color="warning"
+                            title="Cancel"
+                            wire:click="cancel({{$item->id}})"
+                        >
+                        <x-icon.sun/>
+                        </x-button>	
+						@endif						
+						@if (in_array(1, $role))
                         <x-button
                             icon
                             color="danger"
