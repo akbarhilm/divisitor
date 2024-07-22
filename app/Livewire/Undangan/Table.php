@@ -11,6 +11,9 @@ use App\Mail\Ask;
 use Illuminate\Support\Facades\Mail;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Dompdf;
+use Illuminate\Support\Facades\DB;
+use App\Models\Otoritas;
+use Illuminate\Support\Facades\Auth;
 
 class Table extends Component
 {
@@ -32,7 +35,11 @@ class Table extends Component
     public function render()
     {
         $undangans = [];
-		
+		$role = [];
+		$otoritas = Otoritas::select('i_idmodul')->where('i_emp', Auth::user()->nik)->where('c_active', '1')->get();
+		foreach($otoritas as $o){
+			array_push($role,$o->i_idmodul);
+		}
         if (!empty($this->search)) {
             //$undangans = Undangan::with(['e_meet_subject', 'e_meet'])
             $undangans = Undangan::orderBy('i_id','asc')
@@ -49,11 +56,12 @@ class Table extends Component
                 ->orWhere('d_entry', 'like', "%{$this->search}%")
                 ->paginate($this->rowsPerPage);
         } else {
-            $undangans = Undangan::paginate($this->rowsPerPage);
+            $undangans = Undangan::orderBy('i_id','asc')->paginate($this->rowsPerPage);
         }
 
         return view('livewire.undangan.table', [
-            'undangans' => $undangans
+            'undangans' => $undangans,
+            'role' => $role
         ]);
     }
 
@@ -86,5 +94,37 @@ class Table extends Component
         //$this->redirectRoute('undangan');
 
     }
+	
+    public function approve($id){
+		$undangan = Undangan::find($id);
+		//$undangan->update(['c_meet_stat' => 1]);
+		$text = $undangan->id."-".$undangan->tanggal."-".$undangan->jamStart;
+		$cmeetqr = DB::select("SELECT get_random_string(13,'$text')");		
+		Undangan::where('i_id', $id)
+			->update(['c_meet_stat' => 1,'d_meet_aprv' => now(),'c_meet_qr' => $cmeetqr[0]->get_random_string]);		
+       
+        flash()->addSuccess('Undangan has been approved.');
+		$this->dispatch('undangan-updated');
+
+    }	
+
+    public function close($id){
+		Undangan::where('i_id', $id)
+			->update(['c_meet_stat' => 5,'d_update' => now()]);		
+       
+        flash()->addSuccess('Undangan has been closed.');
+		$this->dispatch('undangan-updated');
+
+    }	
+
+    public function cancel($id){
+		Undangan::where('i_id', $id)
+			->update(['c_meet_stat' => 9,'d_meet_cancel' => now()]);		
+       
+        flash()->addSuccess('Undangan has been cancel.');
+		$this->dispatch('undangan-updated');
+
+    }	
+
 }
 

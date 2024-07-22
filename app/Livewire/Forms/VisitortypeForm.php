@@ -7,8 +7,8 @@ use Throwable;
 use Livewire\Form;
 use App\Rules\Uppercase;
 use App\Models\Visitortype;
-use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Validate;
 use Illuminate\Database\QueryException;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -17,11 +17,7 @@ class VisitortypeForm extends Form
     public ?Visitortype $visitortype;
 
     #[Validate([
-        'namatypekunjungan' => 'required',
-        'namatypekunjungan.*' => [
-            'required',
-            new Uppercase,
-        ],
+        'namatypekunjungan' => ['required', 'string', new Uppercase],
     ])]
     public $namatypekunjungan = [];
 
@@ -40,10 +36,7 @@ class VisitortypeForm extends Form
     public function store()
     {
         $this->validate();
-        $this->created_by = "930075";    // fixme
-
-
-
+        $this->created_by = Auth::user()->nik;
         Visitortype::create($this->all());
     }
 
@@ -59,7 +52,7 @@ class VisitortypeForm extends Form
     public function update()
     {
         $this->updated_at = now();
-        $this->updated_by = '930075';    //Auth::user()->nik;
+        $this->updated_by = Auth::user()->nik;
 
         $visitortype = Visitortype::find($this->visitortype->id);
 

@@ -8,14 +8,17 @@
             </div>
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
+					@if (in_array(1, $role))
                     <x-button
                         color="primary"
                         modal="undangan-modal-form"
+						title="Membuat Undangan"
                         wire:mouseenter="$dispatch('create-undangan')"
                     >
                         <x-icon.plus />
                         Create
                     </x-button>
+					@endif
                 </div>
             </div>
         </div>
@@ -25,5 +28,6 @@
     </x-page.body>
     <livewire:undangan.modal.form />
     <livewire:undangan.modal.delete />
-
+    <livewire:undangan.modal.detail />
+	
 </div>

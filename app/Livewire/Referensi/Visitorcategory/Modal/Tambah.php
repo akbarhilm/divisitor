@@ -1,36 +1,35 @@
 <?php
 
-namespace App\Livewire\Referensi\Visitortype\Modal;
+namespace App\Livewire\Referensi\visitorcategory\Modal;
 
 use Illuminate\Database\QueryException;
 use Livewire\Component;
-use App\Models\VisitorType;
+use App\Livewire\Forms\VisitorcategForm;
+use App\Models\VisitorCategory;
 use Livewire\Attributes\On;
-use App\Livewire\Forms\VisitortypeForm;
 
 class Tambah extends Component
 {
-    public VisitortypeForm $form;
+    public VisitorcategForm $form;
 
     public $update = false;
 
-    #[On('visitortype-create')]
+    #[On('visitorcategory-create')]
     public function create()
     {
         $this->form->reset();
         $this->form->resetValidation();
     }
 
-    #[On('visitortype-update')]
+    #[On('visitorcategory-update')]
     public function update($id)
     {
         $this->update = true;
 
-        $visitortype = VisitorType::find($id);
-        $this->form->setVisitortype($visitortype);
-        $this->form->resetValidation();
+        $visitorcategory = VisitorCategory::find($id);
 
-        dd($visitortype);
+        $this->form->setVisitorcategory($visitorcategory);
+        $this->form->resetValidation();
     }
 
     public function save()
@@ -40,13 +39,13 @@ class Tambah extends Component
         } else {
             try {
                 $this->form->store();
-                flash()->addSuccess('Visitor Type successfully Added');
+                flash()->addSuccess('Visitor category successfully ' . ($this->update ? 'updated' : 'added'));
             } catch (QueryException $e) {
                 flash()->addError('Error', 'Type Kunjungan Sudah Ada');
             }
         }
 
-        $this->dispatch('visitortype-updated');
-        $this->redirect('referensi-visitortype');
+        $this->dispatch('visitorcategory-updated');
+        $this->redirect('referensi-visitorcategory');
     }
 }

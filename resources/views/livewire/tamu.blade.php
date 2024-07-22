@@ -11,6 +11,7 @@
                     <x-button
                         color="primary"
                         modal="tamu-modal-form"
+						title="Membuat Tamu"
 						wire:mouseenter="$dispatch('create-tamu', { idvms: {{ $id }} })"
                     >
                         <x-icon.plus />

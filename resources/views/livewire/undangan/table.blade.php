@@ -46,6 +46,10 @@
 					{{$item->e_meet_subject}}
                     </td>
                     <td class="text-center">
+                        <div class="dropdown">
+                        <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown"></a>
+                        <div class="dropdown-menu">
+						@if (in_array(1, $role))
                         @if ("1"==$item->c_meet_stat)
                         <x-button
                             icon
@@ -56,30 +60,80 @@
                         <x-icon.mail/>
                         </x-button>
                         @endif
+						@endif
+						@if (in_array(1, $role))
                         <a
                             class="btn btn-icon btn-success"
                             target="_blank"
 							href="{{ route('tamu', ['id' => $item->id]) }}"
+							title="Peserta"
                         >
                             <x-icon.person />
                         </a>
-                       
+						@endif
+						@if (in_array(2, $role))
+						<x-button
+                            icon
+                            color="info"
+                            title="Approve"
+                            wire:click="approve({{$item->id}})"
+                        >
+                        <x-icon.check/>
+                        </x-button>	
+						@endif
+						@if (in_array(1, $role))
                         <x-button
                             icon
                             color="warning"
                             modal="undangan-modal-form"
+							title="Edit"
                             wire:mouseenter="$dispatch('update-undangan', { id: {{ $item->id }} })"
                         >
                             <x-icon.pencil />
                         </x-button>
+						@endif
+                        <x-button
+                            icon
+                            color="success"
+                            modal="undangan-modal-detail"
+							title="Detail"
+                            wire:mouseenter="$dispatch('detail-undangan', { id: {{ $item->id }} })"
+                        >
+                            <x-icon.search />
+                        </x-button>
+						@if (in_array(1, $role))
+						<x-button
+                            icon
+                            color="info"
+                            title="Close"
+                            wire:click="close({{$item->id}})"
+                        >
+                        <x-icon.alert-triangle/>
+                        </x-button>	
+						@endif
+						@if (in_array(1, $role))
+						<x-button
+                            icon
+                            color="warning"
+                            title="Cancel"
+                            wire:click="cancel({{$item->id}})"
+                        >
+                        <x-icon.sun/>
+                        </x-button>	
+						@endif						
+						@if (in_array(1, $role))
                         <x-button
                             icon
                             color="danger"
                             modal="undangan-modal-delete"
+							title="Delete"
                             wire:click="$dispatch('set-undangan-id', { id: {{ $item->id }} })"
                         >
                             <x-icon.trash />
                         </x-button>
+						@endif
+                        </div>
+                        </div>						
                     </td>
                 </tr>
             @endforeach

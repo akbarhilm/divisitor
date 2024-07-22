@@ -13,7 +13,8 @@ use App\Livewire\Absensi;
 use App\Livewire\AbsensiDetail;
 use App\Livewire\Tamu;
 use App\Livewire\Send;
-use App\Livewire\Referensi;
+use App\Livewire\Visitortype;
+use App\Livewire\Visitorcategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ use App\Livewire\Referensi;
 Route::group(['middleware' => 'keycloak-web'], function () {
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/undangan', Undangan::class)->name('undangan');
+    //Route::get('/send/{id}', Send::class)->name('send');
+    Route::get('/referensi-visitortype', Visitortype::class)->name('visitortype');
+    Route::get('/referensi-visitorcategory', Visitorcategory::class)->name('visitorcategory');
     Route::get('/absensi', Absensi::class)->name('absensi');
     Route::get('/absensidetail/{id}', AbsensiDetail::class)->name('absensidetail');
     Route::get('/referensi', Referensi::class)->name('referensi');

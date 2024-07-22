@@ -81,14 +81,14 @@
                     <x-select
                         label="Pilih Kategori"
                         :items="$kategori"
-                        wire:model="form.kategori_id"
+                        wire:model="form.kategori"
                     />
                 </div>
                 <div class="col-lg-6">
                     <x-select
                         label="Pilih tipe"
                         :items="$tipe"
-                        wire:model="form.tipe_id"
+                        wire:model="form.tipe"
                     />
                 </div>
             </div>			
