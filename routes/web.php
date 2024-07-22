@@ -30,12 +30,10 @@ use App\Livewire\Visitorcategory;
 Route::group(['middleware' => 'keycloak-web'], function () {
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/undangan', Undangan::class)->name('undangan');
-    //Route::get('/send/{id}', Send::class)->name('send');
     Route::get('/referensi-visitortype', Visitortype::class)->name('visitortype');
     Route::get('/referensi-visitorcategory', Visitorcategory::class)->name('visitorcategory');
     Route::get('/absensi', Absensi::class)->name('absensi');
     Route::get('/absensidetail/{id}', AbsensiDetail::class)->name('absensidetail');
-    Route::get('/referensi', Referensi::class)->name('referensi');
     Route::get('/resolution', Resolution::class)->name('resolution');
     Route::get('/incident', Incident::class)->name('incident');
     Route::get('/incident/{id}/edit', IncidentEdit::class)->name('incident-edit');
