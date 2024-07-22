@@ -10,7 +10,7 @@
                 <div class="btn-list">
                     <x-button
                         color="primary"
-                        modal="undangan-modal-form"
+                        modal="absensi-modal-form"
                         wire:mouseenter="$dispatch('create-undangan')"
                         onclick="window.startscan()"
                     >
@@ -29,11 +29,3 @@
     {{--<livewire:undangan.modal.delete /> --}}
 
 </div>
-@push("js_after")
-    
-
-<script type="module">
-
-
-</script>
-@endpush

@@ -56,6 +56,8 @@ class Table extends Component
             'undangans' => $undangans
         ]);
     }
+
+    #[on('send')]
     public function send($id){
         //dd($id);
        // $user = $this->form->store(ask: true);
@@ -63,6 +65,7 @@ class Table extends Component
        $tamu = [];
        $tamu = Tamu::where('i_idvms','=',$id)->get();
        $undangan = Undangan::find($id);
+      // dd($undangan);
        
        $pdf = Pdf::loadView('mail.invitation', ['undangan'=>$undangan])->output();
        $email = new Ask($undangan,$pdf);
@@ -70,7 +73,8 @@ class Table extends Component
       foreach($tamu as $t){
         Mail::to($t->n_visitor_email)->send($email);
       }
-       
+      $undangan->c_meet_stat = 2;
+      $undangan->save();
         
         //$pdf = Pdf::loadView('mail.invitation', ['undangan'=>$undangan]);
        

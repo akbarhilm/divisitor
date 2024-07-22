@@ -6,10 +6,13 @@ use Livewire\Component;
 
 class Absensi extends Component
 {
-    public $receiveStats ="0";
+    public $id;
+    
 
     public function render()
     {
         return view('livewire.absensi');
     }
+
+    
 }

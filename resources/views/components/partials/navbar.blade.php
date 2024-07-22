@@ -58,6 +58,17 @@
                             </span>
                         </a>
                     </li>
+                    <li @class([ 'nav-item' , 'active'=> Route::currentRouteName() == 'absensi',
+                        ])>
+                        <a class="nav-link p-0" href="{{ route('absensi') }}">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <x-icon.check />
+                            </span>
+                            <span class="nav-link-title">
+                                Absensi
+                            </span>
+                        </a>
+                    </li>
                     {{-- <li @class([ 'nav-item' , 'active'=> Route::currentRouteName() == 'dashboard',
                         ])>
                         <a wire:navigate class="nav-link" href="{{ route('dashboard') }}">

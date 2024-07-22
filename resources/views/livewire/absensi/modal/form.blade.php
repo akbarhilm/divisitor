@@ -1,5 +1,5 @@
 <x-modal
-    id="undangan-modal-form"
+    id="absensi-modal-form"
     size="lg"
     x-data="{ modal: new bootstrap.Modal($el) }"
     x-on:undangan-updated="modal.hide()"

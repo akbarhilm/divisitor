@@ -62,8 +62,10 @@
                         <a
                             class="btn btn-icon btn-success"
                             target="_blank"
-                            href="#"
-							{{-- href="{{ route('absensidetail', ['id' => $item->id]) }}" --}}
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="absen detail"
+							href="{{ route('absensidetail', ['id' => $item->i_id]) }}"
                         >
                             <x-icon.person />
                         </a>

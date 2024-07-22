@@ -50,8 +50,8 @@
                         <x-button
                             icon
                             color="info"
-                            
-                            wire:click="send({{$item->id}})"
+                            wire:click="$dispatch('send', { id: {{ $item->id }} })"
+                            {{-- wire:click="send({{$item->id}})" --}}
                         >
                         <x-icon.mail/>
                         </x-button>

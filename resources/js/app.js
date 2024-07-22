@@ -1,8 +1,10 @@
 import {Html5Qrcode} from "html5-qrcode";
-const code = new Html5Qrcode("qr-reader")
-// Html5Qrcode.addConfetti()
-// const html5QrCode = new Html5Qrcode("qr-reader");
+let code 
+if(document.getElementById("qr-reader")){
+ code = new Html5Qrcode("qr-reader")
+}
  window.startscan = function(){
+    
 var resultContainer = document.getElementById('qr-reader-results');
 
 const qrCodeSuccessCallback = (decodedText, decodedResult) => {
@@ -27,7 +29,7 @@ code.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
 
 
        
-$('#undangan-modal-form').on('hidden.bs.modal', function () {
+$('#absensi-modal-form').on('hidden.bs.modal', function () {
     if(code.getState()===2){
     code.stop().then((ignore) => {
        console.log(ignore)
@@ -36,4 +38,8 @@ $('#undangan-modal-form').on('hidden.bs.modal', function () {
     });
 }
 });
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 

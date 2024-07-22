@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Undangan;
 use App\Livewire\Absensi;
+use App\Livewire\AbsensiDetail;
 use App\Livewire\Tamu;
 use App\Livewire\Send;
 use App\Livewire\Referensi;
@@ -29,6 +30,7 @@ Route::group(['middleware' => 'keycloak-web'], function () {
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/undangan', Undangan::class)->name('undangan');
     Route::get('/absensi', Absensi::class)->name('absensi');
+    Route::get('/absensidetail/{id}', AbsensiDetail::class)->name('absensidetail');
     Route::get('/referensi', Referensi::class)->name('referensi');
     Route::get('/resolution', Resolution::class)->name('resolution');
     Route::get('/incident', Incident::class)->name('incident');
