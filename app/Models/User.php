@@ -28,7 +28,16 @@ class User extends KeycloakUser
     {
         $user = Employee::findBy('email', $email);
         $user->photoUrl = Photo::get($user->nik);
-
+        $role = [];
+		$otoritas = Otoritas::select('i_idmodul')->where('i_emp',$user->nik)->where('c_active', '1')->get();
+        
+		foreach($otoritas as $o){
+			array_push($role,$o->i_idmodul);
+		}
+        $user->role=$role;
+       
         Session::put('user', (array) $user);
+        //Session::put();
+
     }
 }

@@ -70,6 +70,7 @@
                             </span>
                         </a>
                     </li>
+                    @if(in_array(4,Auth::user()->role))
                     <li @class([ 'nav-item' , 'active'=> Route::currentRouteName() == 'absensi',
                         ])>
                         <a class="nav-link p-0" href="{{ route('absensi') }}">
@@ -81,6 +82,7 @@
                             </span>
                         </a>
                     </li>
+                    @endif
                     {{-- <li @class([ 'nav-item' , 'active'=> Route::currentRouteName() == 'dashboard',
                         ])>
                         <a wire:navigate class="nav-link" href="{{ route('dashboard') }}">
