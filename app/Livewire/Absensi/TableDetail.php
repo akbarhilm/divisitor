@@ -11,7 +11,7 @@ use App\Api\Employee;
 use App\Models\Building;
 
 
-class Tabledetail extends Component
+class TableDetail extends Component
 {
 	
     use WithPagination;

@@ -11,7 +11,7 @@
         </div>
     </x-page.header>
     <x-page.body>
-        <livewire:absensi.tabledetail :id="$id" />
+        <livewire:absensi.tableDetail :id="$id" />
     </x-page.body>
     <livewire:absensi.modal.formdetail />
     <livewire:absensi.modal.formdetailnama />
