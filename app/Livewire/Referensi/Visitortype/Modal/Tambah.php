@@ -29,8 +29,6 @@ class Tambah extends Component
         $visitortype = VisitorType::find($id);
         $this->form->setVisitortype($visitortype);
         $this->form->resetValidation();
-
-        dd($visitortype);
     }
 
     public function save()
