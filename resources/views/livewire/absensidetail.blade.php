@@ -13,9 +13,9 @@
     <x-page.body>
         <livewire:absensi.tableDetail :id="$id" />
     </x-page.body>
-    <livewire:absensi.modal.formdetail />
-    <livewire:absensi.modal.formdetailnama />
-    <livewire:absensi.modal.formdetailsaved />
+    <livewire:absensi.modal.formDetail />
+    <livewire:absensi.modal.formDetailNama />
+    <livewire:absensi.modal.formDetailSaved />
     
     {{--<livewire:undangan.modal.delete /> --}}
 
