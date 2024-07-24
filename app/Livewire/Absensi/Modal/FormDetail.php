@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 
+
 class FormDetail extends Component
 {
 
@@ -20,11 +21,18 @@ class FormDetail extends Component
     public $qty;
     public $iddetail;
 
- 
-
+    #[Validate('required',message:'Please select image')]
     #[Validate(['ktps.*' => 'image|max:1024'])]
     public $ktps = [];
 
+    public function messages(): array
+    {
+        return [
+            
+            'ktps.*.image' => 'Files must be image',
+            'ktps.*.max' => 'Image too large',
+        ];
+    }
 
 
     #[on('scan-absen')]
@@ -35,7 +43,12 @@ class FormDetail extends Component
 
     public function save()
     {
-     
+      
+        $this->validate();
+        $files = glob(public_path("images\/".$this->qty."-*.*"));
+        if($files){
+            array_map('unlink',$files);
+        }
         $i=0;
         foreach ($this->ktps as $ktp) {
             $ar = explode('.',$ktp->getClientOriginalName());
