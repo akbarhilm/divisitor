@@ -23,7 +23,8 @@
                 
             </thead>
             <tbody id="scan">
-               
+                
+               @if(count($sources)!=0)
            @foreach ($sources as $s=>$v )
                
          
@@ -54,6 +55,10 @@
                 </td>
                </tr>
                @endforeach
+            @else
+                <tr><td colspan="4" align="center">Belum upload KTP</td></tr>
+            
+            @endif
             </tbody>
            </x-table>
                     

@@ -22,7 +22,7 @@
                 
             </thead>
             <tbody id="scan">
-              
+                @if(count($sources)!=0)
            @foreach ($sources as $s )
                
         
@@ -49,6 +49,10 @@
                 </td>
                </tr>
                @endforeach
+               @else
+                <tr><td colspan="4" align="center">Belum Ada Data</td></tr>
+            
+            @endif
             </tbody>
            </x-table>
                     

@@ -47,11 +47,14 @@ class FormDetailNama extends Component
         
        $files = glob(public_path("images\/".$iddetail."-*.*"));
        $nar = [];
-       $temp=[];
       
+     
         foreach($files as $file){
             $arr =  OCR::scan($file);
+            $temp=[];
             $parsedText = preg_split("/\r\n|\n|\r/",$arr);
+           
+            
             $conts =["Nama","NIK"];
            
             foreach($parsedText as $t){
@@ -77,7 +80,7 @@ class FormDetailNama extends Component
             array_push($nar,['image'=>$image,...$temp]);
            
         }
-       
+      
         $this->sources = $nar;
    
        
