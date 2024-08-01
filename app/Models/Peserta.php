@@ -28,6 +28,7 @@ class Peserta extends Model
     protected $maps = [
         'id'    		=> 'i_id',
         'idvms'   		=> 'i_idvms',
+        'idvmsdetail'   => 'i_idvmsdetail',
         'name'  		=> 'n_visitor_card',
         'email'  		=> 'i_visitor_email',
         'handphone'  	=> 'i_visitor_hp',
@@ -40,7 +41,9 @@ class Peserta extends Model
     protected $fillable = [
 		'id',
         'idvms',
+        'idvmsdetail',
         'name',
+		'email',
         'created_by',
         'updated_by',
         'updated_at'
