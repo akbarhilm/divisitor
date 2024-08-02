@@ -118,6 +118,15 @@
                         >
                             <x-icon.trash />
                         </x-button>
+						<x-button
+                            icon
+                            color="info"
+                            title="Copy"
+                            wire:click="copylinkabsenonline({{$item->id}})"
+                        >
+                        <x-icon.copy/>
+                        </x-button>	
+						
                         </div>
                         </div>						
                     </td>

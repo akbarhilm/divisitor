@@ -126,5 +126,11 @@ class Table extends Component
 
     }	
 
+    public function copylinkabsenonline($id){
+		$urlAbsen = url()->current();
+		$urlAbsen = str_replace("livewire/update","absensionline/".$id,$urlAbsen);
+		shell_exec("echo " . escapeshellarg($urlAbsen) . " | clip");
+    }	
+
 }
 
