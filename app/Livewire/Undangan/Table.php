@@ -58,10 +58,12 @@ class Table extends Component
         } else {
             $undangans = Undangan::orderBy('i_id','asc')->paginate($this->rowsPerPage);
         }
-
+		$urlAbsen = url()->current();
+		$urlAbsen = substr($urlAbsen,0,(strpos($urlAbsen,"/",strpos($urlAbsen,"//")+2 ))+1)."absensionline";
         return view('livewire.undangan.table', [
             'undangans' => $undangans,
-            'role' => $role
+            'role' 		=> $role,
+            'urlAbsen'	=> $urlAbsen
         ]);
     }
 
@@ -124,12 +126,6 @@ class Table extends Component
         flash()->addSuccess('Undangan has been cancel.');
 		$this->dispatch('undangan-updated');
 
-    }	
-
-    public function copylinkabsenonline($id){
-		$urlAbsen = url()->current();
-		$urlAbsen = str_replace("livewire/update","absensionline/".$id,$urlAbsen);
-		shell_exec("echo " . escapeshellarg($urlAbsen) . " | clip");
     }	
 
 }

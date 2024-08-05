@@ -117,15 +117,22 @@
                             wire:click="$dispatch('set-undangan-id', { id: {{ $item->id }} })"
                         >
                             <x-icon.trash />
-                        </x-button>
-						<x-button
-                            icon
-                            color="info"
-                            title="Copy"
-                            wire:click="copylinkabsenonline({{$item->id}})"
+                        </x-button>						
+						<a
+                            class="btn btn-icon btn-info"
+							title="Copy Link Absensi Online"
+							onclick="
+								var tempItem = document.createElement('input');
+								tempItem.setAttribute('type','text');
+								tempItem.setAttribute('display','none');    	    
+								tempItem.setAttribute('value','{{$urlAbsen}}/{{$item->id}}');
+								document.body.appendChild(tempItem);    
+								tempItem.select();
+								document.execCommand('Copy');
+								tempItem.parentElement.removeChild(tempItem);							"							
                         >
-                        <x-icon.copy/>
-                        </x-button>	
+                            <x-icon.copylink />
+                        </a>
 						
                         </div>
                         </div>						
@@ -140,3 +147,5 @@
         <x-pagination :resources="$undangans" />
     </x-card.footer>
 </x-card>
+
+	

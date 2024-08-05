@@ -56,9 +56,6 @@ class AbsensiOnline extends Component
 		if($this->tanggal!=$cek)
 			$this->statusRapat = "X";
 		$this->nama = $undangan->subject;
-		$this->namaTamu = "I D Nyoman Sadarana";
-		$this->emailTamu = "nyomansad@gmail.com";
-		$this->hpTamu = "082118008386";
 		return view('livewire.absensi-online');	
     }
 
