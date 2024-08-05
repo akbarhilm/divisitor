@@ -118,6 +118,7 @@
                         >
                             <x-icon.trash />
                         </x-button>						
+                        @if ("1"==$item->c_meet_online)
 						<a
                             class="btn btn-icon btn-info"
 							title="Copy Link Absensi Online"
@@ -133,7 +134,7 @@
                         >
                             <x-icon.copylink />
                         </a>
-						
+                        @endif						
                         </div>
                         </div>						
                     </td>
