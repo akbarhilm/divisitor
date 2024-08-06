@@ -91,7 +91,7 @@
 							title="Detail"
                             wire:mouseenter="$dispatch('detail-undangan', { id: {{ $item->id }} })"
                         >
-                            <x-icon.search />
+                            <x-icon.detail />
                         </x-button>
 						<x-button
                             icon
@@ -107,7 +107,7 @@
                             title="Cancel"
                             wire:click="cancel({{$item->id}})"
                         >
-                        <x-icon.sun/>
+                        <x-icon.cancel/>
                         </x-button>	
                         <x-button
                             icon
