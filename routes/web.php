@@ -15,6 +15,7 @@ use App\Livewire\Tamu;
 use App\Livewire\Send;
 use App\Livewire\Visitortype;
 use App\Livewire\Visitorcategory;
+use App\Livewire\AbsensiOnline;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ use App\Livewire\Visitorcategory;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/absensionline/{id}', AbsensiOnline::class)->name('absensionline')->withoutMiddleware(['auth']);
 
 Route::group(['middleware' => 'keycloak-web'], function () {
     Route::get('/', Dashboard::class)->name('dashboard');
